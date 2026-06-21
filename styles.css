@@ -444,13 +444,13 @@ gap: 56px; align-items: center;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .btn--wa { font-size: 11px; padding: 7px 12px; flex-shrink: 0; }
+  .btn--wa { font-size: 10px; padding: 6px 8px; flex-shrink: 0; max-width: 120px; }
   .hamburger { display: none; }
 
   /* Nav fija debajo del topbar */
 .main-nav {
     position: fixed;
-    top: 130px;
+    top: 115px;
     left: 0; right: 0;
     height: var(--nav-h);
     z-index: 199;
@@ -532,8 +532,9 @@ gap: 56px; align-items: center;
   .nav-link--cta { margin-left: 0; }
 
   /* Header offset para móvil */
-.header-offset { height: 160px; }
+  .header-offset { height: 176px; }
 
+  
   /* Grids */
   .advantages__grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
@@ -553,7 +554,7 @@ gap: 56px; align-items: center;
   .hero { padding: 40px 0; }
   .section-body { padding: 40px 0; }
   .cta-row { flex-direction: column; align-items: flex-start; }
-  .logo__text { display: none; }
+  .logo__text { display: block; font-size: 14px; }
   .logo__img { height: 50px; }
   .stat-grid { grid-template-columns: 1fr; }
   .footer__brand-top { flex-direction: column; align-items: flex-start; }
