@@ -412,31 +412,140 @@ gap: 56px; align-items: center;
 
 /* Móvil (≤768px) */
 @media (max-width: 768px) {
-  :root { --topbar-h: 62px; --nav-h: 0px; }
+  :root { --topbar-h: auto; --nav-h: 46px; }
 
-  /* Ocultar email en topbar */
-  .topbar__email { display: none; }
-
-  /* Mostrar hamburguesa */
-  .hamburger { display: flex; }
-
-  /* Nav como menú desplegable */
-  .main-nav {
-    top: var(--topbar-h); height: auto;
-    transform: translateY(-100%);
-    transition: transform .3s ease;
-    visibility: hidden;
-    pointer-events: none;
+  /* Topbar en móvil: dos filas */
+  .topbar {
+    height: auto;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
   }
-  .main-nav.open {
-    transform: translateY(0);
-    visibility: visible;
-    pointer-events: all;
-    box-shadow: 0 8px 28px rgba(0,0,0,.7);
+  .topbar__inner {
+    flex-wrap: wrap;
+    padding: 8px 16px 0;
+    gap: 8px;
+  }
+  .logo { order: 1; }
+  .topbar__right {
+    order: 2;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    border-top: 1px solid var(--steel3);
+    padding-top: 8px;
+    gap: 8px;
+  }
+  .topbar__email {
+    display: block;
+    font-size: 11px;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .btn--wa { font-size: 11px; padding: 7px 12px; flex-shrink: 0; }
+  .hamburger { display: none; }
+
+  /* Nav fija debajo del topbar */
+  .main-nav {
+    position: fixed;
+    top: auto;
+    left: 0; right: 0;
+    height: var(--nav-h);
+    z-index: 199;
+    display: flex;
+    align-items: center;
   }
   .main-nav__inner {
-    flex-direction: column; height: auto; padding: 0; overflow: visible;
+    flex-direction: row;
+    height: 100%;
+    padding: 0 16px;
+    align-items: center;
+    justify-content: space-between;
+    overflow: visible;
+    width: 100%;
   }
+
+  /* Logo y hamburguesa en la nav */
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-logo img { height: 32px; width: auto; }
+  .nav-logo span {
+    font-family: var(--display);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  .nav-logo span em { color: var(--off-white); font-style: normal; font-weight: 400; }
+
+  /* Hamburguesa amarilla */
+  .nav-hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--amber);
+    transition: transform .3s, opacity .3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Links ocultos por defecto en móvil */
+  .nav-link { display: none; }
+
+  /* Menú desplegable cuando está abierto */
+  .main-nav.open .nav-link {
+    display: flex;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--steel3);
+    border-left: none;
+    height: auto;
+    width: 100%;
+  }
+  .main-nav.open {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 8px 28px rgba(0,0,0,.7);
+  }
+  .main-nav.open .main-nav__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    width: 100%;
+  }
+  .nav-link--cta { margin-left: 0; }
+
+  /* Header offset para móvil */
+  .header-offset { height: calc(var(--topbar-h) + var(--nav-h)); }
+
+  /* Grids */
+  .advantages__grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; gap: 0; }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .contact-cards { grid-template-columns: 1fr; }
+  .footer__inner { grid-template-columns: 1fr; gap: 28px; }
+  .cta-banner__inner { flex-direction: column; align-items: flex-start; }
+  .photo-grid { grid-template-columns: 1fr; }
+}
+
+
   .nav-link {
     padding: 16px 24px; border-bottom: 1px solid var(--steel3);
     border-left: none; height: auto;

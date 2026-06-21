@@ -66,6 +66,15 @@ window.addEventListener('popstate', () => {
 // ============================================================
 const hamburger = document.getElementById('hamburger');
 const mainNav   = document.getElementById('mainNav');
+const navHamburger = document.getElementById('navHamburger');
+if (navHamburger && mainNav) {
+  navHamburger.addEventListener('click', () => {
+    const isOpen = navHamburger.classList.toggle('open');
+    navHamburger.setAttribute('aria-expanded', isOpen);
+    mainNav.classList.toggle('open', isOpen);
+  });
+}
+
 
 function closeHamburger() {
   if (hamburger) {
