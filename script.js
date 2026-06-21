@@ -33,7 +33,7 @@ function navTo(id) {
   if (target) {
     target.classList.remove('hidden');
     // Scroll al inicio de la página
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
   // Actualizar nav link activo
@@ -81,8 +81,13 @@ function closeHamburger() {
     hamburger.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
   }
+  if (navHamburger) {
+    navHamburger.classList.remove('open');
+    navHamburger.setAttribute('aria-expanded', 'false');
+  }
   if (mainNav) mainNav.classList.remove('open');
 }
+
 
 if (hamburger && mainNav) {
   hamburger.addEventListener('click', () => {
