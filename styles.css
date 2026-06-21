@@ -558,7 +558,7 @@ gap: 56px; align-items: center;
   .nav-link--cta { margin-left: 0; }
 
   /* Header offset para móvil */
-  .header-offset { height: 176px; }
+  .header-offset { height: 200px; }
 
 
   /* Grids */
