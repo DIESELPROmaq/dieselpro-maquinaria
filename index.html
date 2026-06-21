@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIESELPRO MAQUINARIA – Soporte Técnico para Maquinaria Pesada</title>
+  <meta name="description" content="15 años de excelencia en diagnóstico avanzado, mecánica especializada, sistema eléctrico y tren de rodaje para maquinaria pesada. Servicio 24 horas en Puebla.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!--
+    EMAILJS (opcional para envío de correo):
+    1. Crea cuenta gratuita en https://www.emailjs.com
+    2. Descomenta la línea siguiente y pon tus claves en script.js
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       TOPBAR — fija
+  ══════════════════════════════════════ -->
+  <header class="topbar" id="topbar">
+    <div class="topbar__inner">
+
+      <a href="#inicio" class="logo" onclick="navTo('inicio')">
+        <img src="DIESELPRO MAQUINARIA LOGO.jpeg" alt="DIESELPRO MAQUINARIA" class="logo__img">
+        <span class="logo__text">DIESELPRO <em>MAQUINARIA</em></span>
+      </a>
+
+      <div class="topbar__right">
+        <a href="mailto:dieselpromaquinaria@gmail.com" class="btn btn--outline-amber">dieselpromaquinaria@gmail.com</a>
+        <a href="#" onclick="waBtnTopbar(); return false;" class="btn btn--wa">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       NAV — fija debajo del topbar
+  ══════════════════════════════════════ -->
+  <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+    <div class="main-nav__inner">
+      <a href="#inicio"    class="nav-link active" data-section="inicio"    onclick="navTo('inicio')">Inicio</a>
+      <a href="#nosotros"  class="nav-link"         data-section="nosotros"  onclick="navTo('nosotros')">Quiénes Somos</a>
+      <a href="#servicio"  class="nav-link"         data-section="servicio"  onclick="navTo('servicio')">Servicio y Motor</a>
+      <a href="#rodaje"    class="nav-link"         data-section="rodaje"    onclick="navTo('rodaje')">Tren de Rodaje</a>
+      <a href="#renta"     class="nav-link"         data-section="renta"     onclick="navTo('renta')">Renta y Venta</a>
+      <a href="#contacto"  class="nav-link nav-link--cta" data-section="contacto" onclick="navTo('contacto')">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- offset para el header fijo -->
+  <div class="header-offset"></div>
+
+  
+<!-- ══════════════════════════════════════
+       SECCIÓN: INICIO / HERO
+  ══════════════════════════════════════ -->
+  <section class="section-page" id="inicio">
+
+    <div class="hero">
+      <div class="container">
+        <div class="hero__layout">
+
+          <!-- Texto izquierda -->
+          <div class="hero__content">
+            <span class="eyebrow">Soporte Técnico Especializado · Puebla, México</span>
+            <h1 class="hero__title">
+              15 Años de<br>
+              <span class="accent">Excelencia</span><br>
+              en Maquinaria Pesada
+            </h1>
+            <p class="hero__sub">
+              En DIESELPRO MAQUINARIA mantenemos tus proyectos en movimiento.
+              Especialistas en diagnóstico avanzado, mecánica, sistema eléctrico
+              y tren de rodaje. Servicio técnico disponible las 24 horas.
+            </p>
+            <div class="cta-row">
+                <a href="#" onclick="waBtnHero(); return false;" class="btn btn--primary">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Escribir por WhatsApp
+              </a>
+              <a href="#contacto" class="btn btn--outline" onclick="navTo('contacto')">Solicitar cotización</a>
+            </div>
+          </div>
+
+          <!-- Logo derecha -->
+          <div class="hero__img-wrap">
+            <img src="DIESELPRO MAQUINARIA LOGO.jpeg" alt="DIESELPRO MAQUINARIA" class="hero__img">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Ventajas -->
+    <div class="advantages">
+      <div class="container">
+        <div class="advantages__grid">
+          <div class="adv-card">
+            <div class="adv-card__num">15</div>
+            <div class="adv-card__title">Años de Trayectoria</div>
+            <p class="adv-card__text">Respaldando proyectos de construcción, infraestructura y minería en la región.</p>
+          </div>
+          <div class="adv-card">
+            <div class="adv-card__num">24H</div>
+            <div class="adv-card__title">Disponibilidad Total</div>
+            <p class="adv-card__text">Soporte técnico en campo disponible las 24 horas para atender emergencias.</p>
+          </div>
+          <div class="adv-card">
+            <div class="adv-card__num">OEM</div>
+            <div class="adv-card__title">Refacciones Originales</div>
+            <p class="adv-card__text">Diagnósticos certeros, refacciones de calidad y mano de obra calificada.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Servicios resumen -->
+    <div class="container" style="padding-top:64px; padding-bottom:64px;">
+      <div class="section-label"><h2>Nuestros Servicios</h2></div>
+      <div class="services-grid">
+        <a href="#servicio" class="srv-card" onclick="navTo('servicio')">
+          <div class="srv-card__title">Diagnóstico Avanzado</div>
+          <p class="srv-card__text">Escaneo electrónico y evaluación de parámetros en tiempo real para fallas críticas en motor, transmisión e hidráulicos.</p>
+          <span class="srv-card__link">Ver más →</span>
+        </a>
+        <a href="#servicio" class="srv-card" onclick="navTo('servicio')">
+          <div class="srv-card__title">Mecánica de Motor</div>
+          <p class="srv-card__text">Overhaul integral, instalación de bombas de inyección y reemplazo de inyectores para Caterpillar 320DL.</p>
+          <span class="srv-card__link">Ver más →</span>
+        </a>
+        <a href="#servicio" class="srv-card" onclick="navTo('servicio')">
+          <div class="srv-card__title">Sistema Eléctrico</div>
+          <p class="srv-card__text">Monitor 320D y arnés principal: instalación, configuración técnica y diagnóstico de sistemas eléctricos avanzados.</p>
+          <span class="srv-card__link">Ver más →</span>
+        </a>
+        <a href="#rodaje" class="srv-card" onclick="navTo('rodaje')">
+          <div class="srv-card__title">Tren de Rodaje</div>
+          <p class="srv-card__text">Reemplazo de eslabones, venta de botes y martillos hidráulicos para excavadoras sobre orugas.</p>
+          <span class="srv-card__link">Ver más →</span>
+        </a>
+        <a href="#servicio" class="srv-card" onclick="navTo('servicio')">
+          <div class="srv-card__title">Mantenimiento Preventivo</div>
+          <p class="srv-card__text">Programas basados en horas de operación (250h, 500h, 1000h) para prolongar la vida útil del equipo.</p>
+          <span class="srv-card__link">Ver más →</span>
+        </a>
+        <a href="#renta" class="srv-card" onclick="navTo('renta')">
+          <div class="srv-card__title">Renta y Venta de Equipos</div>
+          <p class="srv-card__text">Flotilla disponible para renta semanal, quincenal o mensual. Venta de maquinaria usada con historial verificado.</p>
+          <span class="srv-card__link">Ver más →</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- CTA banner -->
+    <div class="cta-banner">
+      <div class="container">
+        <div class="cta-banner__inner">
+          <div>
+            <h2 class="cta-banner__title">¿Maquinaria detenida?<br>Llámenos ahora.</h2>
+            <p class="cta-banner__sub">Atención de emergencias mecánicas las 24 horas del día.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a href="#" onclick="waBtnEmergencia(); return false;" class="btn btn--dark">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Contactar por WhatsApp
+            </a>
+            <a href="#contacto" class="btn btn--outline-dark" onclick="navTo('contacto')">Solicitar servicio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+<!-- ══════════════════════════════════════
+       SECCIÓN: QUIÉNES SOMOS
+  ══════════════════════════════════════ -->
+  <section class="section-page hidden" id="nosotros">
+    <div class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Nuestra empresa</span>
+        <h1 class="page-hero__title">Nuestra Trayectoria<br>y Compromiso Técnico</h1>
+        <p class="page-hero__sub">15 años dedicados al mantenimiento integral y optimización de maquinaria pesada.</p>
+      </div>
+    </div>
+
+    <div class="container section-body">
+      <div class="two-col">
+        <div>
+          <div class="section-label"><h2>Quiénes Somos</h2></div>
+          <p class="body-text">En DIESELPRO MAQUINARIA sumamos 15 años de experiencia dedicados al mantenimiento integral, reparación y optimización de maquinaria pesada. Nos especializamos en mantener la continuidad de sus operaciones en obra, minimizando los tiempos muertos mediante diagnósticos técnicos avanzados y soluciones mecánicas de alta precisión.</p>
+          <p class="body-text">Nuestra prioridad es asegurar la potencia, el rendimiento óptimo y la seguridad de sus equipos de trabajo, respaldando proyectos de construcción, infraestructura y minería en toda la región.</p>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-box"><div class="stat-box__num">15</div><div class="stat-box__lbl">Años de experiencia</div></div>
+          <div class="stat-box"><div class="stat-box__num">24h</div><div class="stat-box__lbl">Soporte en campo</div></div>
+          <div class="stat-box"><div class="stat-box__num">100%</div><div class="stat-box__lbl">Diagnóstico certero</div></div>
+          <div class="stat-box"><div class="stat-box__num">OEM</div><div class="stat-box__lbl">Refacciones originales</div></div>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top: 32px;">
+        <div class="phil-item">
+          <div class="phil-item__title">Precisión Técnico-Operativa</div>
+          <div class="phil-item__text">Solución efectiva de fallas complejas y verificación de sistemas para el arranque seguro de flotas. Cada diagnóstico es respaldado por ingenieros y mecánicos certificados.</div>
+        </div>
+        <div class="phil-item">
+          <div class="phil-item__title">Disponibilidad Total</div>
+          <div class="phil-item__text">Entendemos que el tiempo en la construcción es crítico. Por eso operamos con atención las 24 horas del día, los 365 días del año.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-banner">
+      <div class="container">
+        <div class="cta-banner__inner">
+          <div>
+            <h2 class="cta-banner__title">¿Necesita soporte técnico?</h2>
+            <p class="cta-banner__sub">Contáctenos y un especialista atenderá su requerimiento.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a href="#contacto" class="btn btn--dark" onclick="navTo('contacto')">Solicitar servicio</a>
+            <a href="#" onclick="waBtnNosotros(); return false;" class="btn btn--outline-dark">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+<!-- ══════════════════════════════════════
+       SECCIÓN: SERVICIO Y MOTOR
+  ══════════════════════════════════════ -->
+  <section class="section-page hidden" id="servicio">
+    <div class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Mecánica · Electricidad · Taller Móvil</span>
+        <h1 class="page-hero__title">Servicio Técnico y Motor</h1>
+        <p class="page-hero__sub">Diagnóstico avanzado, mecánica especializada y sistema eléctrico para maquinaria pesada.</p>
+      </div>
+    </div>
+
+    <div class="container section-body">
+
+      <div class="section-label"><h2>Mantenimiento, Soporte y Taller Móvil</h2></div>
+      <div class="services-grid" style="margin-bottom:56px">
+
+        <div class="srv-card srv-card--clickable" onclick="openServicio('diagnostico')">
+          <div class="srv-card__title">Diagnóstico</div>
+          <p class="srv-card__text">Escaneo electrónico y evaluación de parámetros en tiempo real para detectar fallas críticas en motor, transmisión y sistemas hidráulicos.</p>
+          <span class="srv-card__link">Ver detalle →</span>
+        </div>
+
+        <div class="srv-card srv-card--clickable" onclick="openServicio('puesta')">
+          <div class="srv-card__title">Puesta en Operación</div>
+          <p class="srv-card__text">Inspección técnica inicial, pruebas de rendimiento, calibración y entrega de maquinaria lista para jornadas de trabajo pesado bajo condiciones óptimas de seguridad.</p>
+          <span class="srv-card__link">Ver detalle →</span>
+        </div>
+
+        <div class="srv-card srv-card--clickable" onclick="openServicio('preventivo')">
+          <div class="srv-card__title">Mantenimiento Preventivo</div>
+          <p class="srv-card__text">Programas de servicio basados en horas de operación (250h, 500h, 1000h) para prolongar la vida útil del equipo.</p>
+          <span class="srv-card__link">Ver detalle →</span>
+        </div>
+
+        <div class="srv-card srv-card--clickable" onclick="openServicio('correctivo')">
+          <div class="srv-card__title">Mantenimiento Correctivo</div>
+          <p class="srv-card__text">Reparación profunda de componentes mecánicos y sistemas generales bajo estándares de ingeniería.</p>
+          <span class="srv-card__link">Ver detalle →</span>
+        </div>
+
+        <div class="srv-card srv-card--clickable" onclick="openServicio('soldadura')">
+          <div class="srv-card__title">Reparación de Soldadura</div>
+          <p class="srv-card__text">Reconstrucción estructural, refuerzo de componentes y soldadura de alta penetración para equipo pesado.</p>
+          <span class="srv-card__link">Ver detalle →</span>
+        </div>
+
+      </div>
+
+      <div class="section-label"><h2>Mecánica Especializada y Motor</h2></div>
+      <div class="photo-grid" style="margin-bottom:56px">
+        <div class="photo-card">
+          <img src="Servicio de Motor Original.jpeg" alt="Servicio de Motor Original" class="photo-card__img" onclick="abrirImagen(this.src)" style="cursor:zoom-in;" onerror="this.parentElement.querySelector('.img-ph').style.display='flex';this.style.display='none'">
+          <div class="img-ph">Servicio de Motor Original.jpeg</div>
+          <div class="photo-card__body">
+            <div class="photo-card__tag">Motor</div>
+            <div class="photo-card__title">Servicio de Motor Original</div>
+            <p class="photo-card__text">Overhaul integral de motores utilizando componentes originales para asegurar la máxima compresión, eficiencia de combustible y vida útil.</p>
+          </div>
+        </div>
+        <div class="photo-card">
+          <img src="Instalación de Bombas de inyección.jpeg" alt="Instalación de Bombas de Inyección" class="photo-card__img" onclick="abrirImagen(this.src)" style="cursor:zoom-in;" onerror="this.parentElement.querySelector('.img-ph').style.display='flex';this.style.display='none'">
+          <div class="img-ph">Instalación de Bombas de inyección.jpeg</div>
+          <div class="photo-card__body">
+            <div class="photo-card__tag">Inyección</div>
+            <div class="photo-card__title">Instalación de Bombas de Inyección</div>
+            <p class="photo-card__text">Calibración, montaje y puesta a punto siguiendo las especificaciones de torque del fabricante.</p>
+          </div>
+        </div>
+        <div class="photo-card">
+          <img src="Reemplazo de Inyectores Nuevos para 320DL.jpeg" alt="Inyectores 320DL" class="photo-card__img" onclick="abrirImagen(this.src)" style="cursor:zoom-in;" onerror="this.parentElement.querySelector('.img-ph').style.display='flex';this.style.display='none'">
+          <div class="img-ph">Reemplazo de Inyectores Nuevos para 320DL.jpeg</div>
+          <div class="photo-card__body">
+            <div class="photo-card__tag">Caterpillar 320DL</div>
+            <div class="photo-card__title">Inyectores Nuevos 320DL</div>
+            <p class="photo-card__text">Optimización del sistema de combustible y restauración de la potencia original del motor en excavadoras Caterpillar 320DL.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label"><h2>Sistema Eléctrico Avanzado 320D</h2></div>
+      <div class="photo-grid">
+        <div class="photo-card">
+          <img src="Monitor 320D.jpeg" alt="Monitor 320D" class="photo-card__img" onclick="abrirImagen(this.src)" style="cursor:zoom-in;" onerror="this.parentElement.querySelector('.img-ph').style.display='flex';this.style.display='none'">
+          <div class="img-ph">Monitor 320D.jpeg</div>
+          <div class="photo-card__body">
+            <div class="photo-card__tag">Eléctrico · 320D</div>
+            <div class="photo-card__title">Monitor 320D</div>
+            <p class="photo-card__text">Instalación, configuración técnica y diagnóstico del panel de control de cabina.</p>
+          </div>
+        </div>
+        <div class="photo-card">
+          <img src="Arnés Principal 320D.jpeg" alt="Arnés Principal 320D" class="photo-card__img" onclick="abrirImagen(this.src)" style="cursor:zoom-in;" onerror="this.parentElement.querySelector('.img-ph').style.display='flex';this.style.display='none'">
+          <div class="img-ph">Arnés Principal 320D.jpeg</div>
+          <div class="photo-card__body">
+            <div class="photo-card__tag">Eléctrico · 320D</div>
+            <div class="photo-card__title">Arnés Principal 320D</div>
+            <p class="photo-card__text">Reemplazo completo y ruteo técnico de arneses eléctricos para prevenir cortocircuitos y códigos de falla del sistema.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cta-banner">
+      <div class="container">
+        <div class="cta-banner__inner">
+          <div>
+            <h2 class="cta-banner__title">¿Su equipo necesita diagnóstico o reparación?</h2>
+            <p class="cta-banner__sub">Servicio técnico en campo disponible las 24 horas.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a href="#contacto" class="btn btn--dark" onclick="navTo('contacto')">Solicitar cotización</a>
+            <a href="#" onclick="waBtnServicio(); return false;" class="btn btn--outline-dark">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MODALES DE SERVICIOS ══ -->
+  <div class="modal-overlay" id="modal-diagnostico">
+    <div class="modal">
+      <button class="modal__close" onclick="closeModal('modal-diagnostico')">✕</button>
+      <div class="modal__tag">Mantenimiento</div>
+      <h3 class="modal__title">Servicio de Diagnóstico</h3>
+      <p class="modal__body">Mediante escaneo electrónico avanzado conectamos directamente a la computadora de la máquina para leer códigos de falla activos e históricos, evaluar parámetros de operación en tiempo real y comparar contra los valores de fábrica.</p>
+      <p class="modal__body">Detectamos fallas en motor, transmisión, sistema hidráulico, sistema de enfriamiento y componentes eléctricos antes de que se conviertan en paros costosos. Entregamos un reporte técnico con las fallas encontradas y las acciones correctivas recomendadas.</p>
+      <ul class="modal__list-detail">
+        <li>Lectura de códigos de falla activos e históricos</li>
+        <li>Evaluación de presiones hidráulicas y temperaturas</li>
+        <li>Revisión de parámetros de motor en tiempo real</li>
+        <li>Reporte técnico escrito al finalizar</li>
+      </ul>
+      <div class="modal__actions">
+        <a href="#" onclick="waBtnModal('diagnostico'); return false;" class="btn btn--primary">Solicitar por WhatsApp</a>
+        <button class="btn btn--outline" onclick="closeModal('modal-diagnostico')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-puesta">
+    <div class="modal">
+      <button class="modal__close" onclick="closeModal('modal-puesta')">✕</button>
+      <div class="modal__tag">Operación</div>
+      <h3 class="modal__title">Puesta en Operación de Equipos</h3>
+      <p class="modal__body">Servicio especializado para equipos que regresan de taller, llegan nuevos a obra o han estado inactivos por un período prolongado. Realizamos una revisión técnica completa antes de que la máquina inicie jornadas de trabajo pesado.</p>
+      <p class="modal__body">Verificamos todos los sistemas críticos, realizamos pruebas de rendimiento bajo carga y entregamos la maquinaria con la certeza de que operará de forma segura y eficiente desde el primer turno.</p>
+      <ul class="modal__list-detail">
+        <li>Inspección visual y técnica de todos los sistemas</li>
+        <li>Verificación de niveles de fluidos y presiones</li>
+        <li>Pruebas de rendimiento hidráulico y de motor</li>
+        <li>Calibración de sistemas según especificaciones del fabricante</li>
+        <li>Entrega con reporte de condición del equipo</li>
+      </ul>
+      <div class="modal__actions">
+        <a href="#" onclick="waBtnModal('puesta'); return false;" class="btn btn--primary">Solicitar por WhatsApp</a>
+<button class="btn btn--outline" onclick="closeModal('modal-puesta')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-preventivo">
+    <div class="modal">
+      <button class="modal__close" onclick="closeModal('modal-preventivo')">✕</button>
+      <div class="modal__tag">Preventivo</div>
+      <h3 class="modal__title">Mantenimiento Preventivo</h3>
+      <p class="modal__body">Programa de servicios programados con base en las horas de operación del equipo, siguiendo estrictamente el manual del fabricante. El mantenimiento preventivo es la inversión más rentable para proteger la vida útil de su maquinaria.</p>
+      <p class="modal__body">Diseñamos un calendario de mantenimiento personalizado para su flotilla, evitando paros no programados que generan pérdidas en productividad y reparaciones de emergencia más costosas.</p>
+      <ul class="modal__list-detail">
+        <li>Servicio de 250 horas: filtros, aceites y revisión general</li>
+        <li>Servicio de 500 horas: transmisión, hidráulico y tren de rodaje</li>
+        <li>Servicio de 1000 horas: overhaul de componentes mayores</li>
+        <li>Bitácora de mantenimiento actualizada por equipo</li>
+        <li>Alertas programadas para próximos servicios</li>
+      </ul>
+      <div class="modal__actions">
+        <a href="#" onclick="waBtnModal('preventivo'); return false;" class="btn btn--primary">Solicitar por WhatsApp</a>
+        <button class="btn btn--outline" onclick="closeModal('modal-preventivo')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-correctivo">
+    <div class="modal">
+      <button class="modal__close" onclick="closeModal('modal-correctivo')">✕</button>
+      <div class="modal__tag">Correctivo</div>
+      <h3 class="modal__title">Mantenimiento Correctivo</h3>
+      <p class="modal__body">Reparación integral de fallas mecánicas, hidráulicas y eléctricas en maquinaria pesada. Contamos con taller móvil para atención en campo, reduciendo al mínimo el tiempo de traslado y el costo de grúas o plataformas.</p>
+      <p class="modal__body">Trabajamos con refacciones de calidad OEM y aftermarket certificado, garantizando que cada reparación cumpla con los estándares de ingeniería del fabricante original.</p>
+      <ul class="modal__list-detail">
+        <li>Diagnóstico previo para identificar causa raíz de la falla</li>
+        <li>Reparación de motor, transmisión e hidráulicos</li>
+        <li>Atención en campo con taller móvil equipado</li>
+        <li>Refacciones OEM y aftermarket certificado</li>
+        <li>Garantía sobre la reparación realizada</li>
+      </ul>
+      <div class="modal__actions">
+        <a href="#" onclick="waBtnModal('correctivo'); return false;" class="btn btn--primary">Solicitar por WhatsApp</a>
+        <button class="btn btn--outline" onclick="closeModal('modal-correctivo')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-soldadura">
+    <div class="modal">
+      <button class="modal__close" onclick="closeModal('modal-soldadura')">✕</button>
+      <div class="modal__tag">Soldadura</div>
+      <h3 class="modal__title">Reparación de Soldadura</h3>
+      <p class="modal__body">Servicio de soldadura estructural especializada para maquinaria pesada. Reparamos y reforzamos componentes sometidos a esfuerzos extremos como cucharones, brazos, bastidores, plumas y estructuras de tren de rodaje.</p>
+      <p class="modal__body">Utilizamos procesos de soldadura de alta penetración con materiales de aporte certificados, asegurando que la reparación tenga igual o mayor resistencia que el material original. Servicio disponible en campo o en taller.</p>
+      <ul class="modal__list-detail">
+        <li>Soldadura MIG, TIG y electrodo revestido</li>
+        <li>Reconstrucción de cucharones y aditamentos</li>
+        <li>Refuerzo de bastidores y estructuras principales</li>
+        <li>Reparación de plumas y brazos de excavadora</li>
+        <li>Disponible en campo o en taller</li>
+      </ul>
+      <div class="modal__actions">
+        <a href="#" onclick="waBtnModal('soldadura'); return false;" class="btn btn--primary">Solicitar por WhatsApp</a>
+        <button class="btn btn--outline" onclick="closeModal('modal-soldadura')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN: TREN DE RODAJE
+  ══════════════════════════════════════ -->
+  <section class="section-page hidden" id="rodaje">
+    <div class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Orugas · Aditamentos · Alta Resistencia</span>
+        <h1 class="page-hero__title">Tren de Rodaje<br>y Aditamentos</h1>
+        <p class="page-hero__sub">Componentes de desgaste, sistemas de orugas y equipos de alto impacto para excavadoras.</p>
+      </div>
+    </div>
+
+    <div class="container section-body">
+
+      <div class="section-label"><h2>Sistemas de Rodaje</h2></div>
+      <div class="photo-grid photo-grid--wide" style="margin-bottom:56px">
+<div class="photo-card photo-card--hero">
+      <img src="Reemplazo de eslabones  para cadena de Excavadora.jpeg" alt="Reemplazo de Eslabones" class="photo-card__img photo-card__img--tall" onclick="abrirImagen(this.src)" style="cursor:zoom-in;" onerror="this.parentElement.querySelector('.img-ph').style.display='flex';this.style.display='none'">
+            <div class="img-ph">Reemplazo de eslabones para cadena de Excavadora.jpeg</div>
+          <div class="photo-card__body">
+            <div class="photo-card__tag">Rodaje · En campo</div>
+            <div class="photo-card__title">Reemplazo de Eslabones para Cadena de Excavadora</div>
+            <p class="photo-card__text">Desarmado, uso de prensa y ensamble técnico de eslabones de rodaje. Restauramos la tensión y estabilidad de las orugas directamente en el campo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label"><h2>Venta de Aditamentos de Alta Resistencia</h2></div>
+      <div class="photo-grid">
+        <div class="photo-card">
+          <img src="Botes para excavadora.jpeg" alt="Botes para Excavadora" class="photo-card__img" onclick="abrirImagen(this.src)" style="cursor:zoom-in;" onerror="this.parentElement.querySelector('.img-ph').style.display='flex';this.style.display='none'">
+          <div class="img-ph">Botes para excavadora.jpeg</div>
+          <div class="photo-card__body">
+            <div class="photo-card__tag">Aditamentos · Venta</div>
+            <div class="photo-card__title">Botes para Excavadora</div>
+            <p class="photo-card__text">Suministro de botes reforzados de capacidad estándar y uso pesado para excavación en roca o suelos altamente abrasivos.</p>
+          </div>
+        </div>
+        <div class="photo-card">
+          <img src="Martillos Hidraulicos Nuevos.jpeg" alt="Martillos Hidráulicos" class="photo-card__img" onclick="abrirImagen(this.src)" style="cursor:zoom-in;" onerror="this.parentElement.querySelector('.img-ph').style.display='flex';this.style.display='none'">
+          <div class="img-ph">Martillos Hidraulicos Nuevos.jpeg</div>
+          <div class="photo-card__body">
+            <div class="photo-card__tag">Aditamentos · Venta</div>
+            <div class="photo-card__title">Martillos Hidráulicos Nuevos</div>
+            <p class="photo-card__text">Equipos de alto impacto para demolición, listos para acoplamiento técnico e inicio de operaciones.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cta-banner">
+      <div class="container">
+        <div class="cta-banner__inner">
+          <div>
+            <h2 class="cta-banner__title">¿Necesita un aditamento o servicio de rodaje?</h2>
+            <p class="cta-banner__sub">Atención en campo directamente donde está su equipo.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a href="#contacto" class="btn btn--dark" onclick="navTo('contacto')">Cotizar ahora</a>
+            <a href="#" onclick="waBtnRenta(); return false;" class="btn btn--outline-dark">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN: RENTA Y VENTA
+  ══════════════════════════════════════ -->
+  <section class="section-page hidden" id="renta">
+    <div class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Flotilla disponible</span>
+        <h1 class="page-hero__title">Renta y Venta<br>de Equipos</h1>
+        <p class="page-hero__sub">Maquinaria para renta flexible y venta con historial verificado de mantenimiento.</p>
+      </div>
+    </div>
+
+    <div class="container section-body">
+      <div class="section-label"><h2>Flotilla y Maquinaria Disponible</h2></div>
+      <div class="renta-grid">
+        <div class="renta-card">
+          <div class="renta-card__title">Renta de Maquinaria</div>
+          <p class="renta-card__text">Unidades disponibles para renta por periodos flexibles. Equipos en óptimas condiciones operativas con mantenimiento preventivo al corriente. Ideal para proyectos de corta y mediana duración sin inversión en activos.</p>
+          <div class="chips">
+            <span class="chip">Semanal</span>
+            <span class="chip">Quincenal</span>
+            <span class="chip">Mensual</span>
+          </div>
+        </div>
+        <div class="renta-card">
+          <div class="renta-card__title">Venta de Equipos Usados</div>
+          <p class="renta-card__text">Catálogo seleccionado de maquinaria usada con historial de mantenimiento verificado, garantizando inversiones seguras y confiables para su negocio. Cada equipo pasa por revisión técnica antes de su venta.</p>
+          <div class="chips">
+            <span class="chip">Historial verificado</span>
+            <span class="chip">Garantía técnica</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:32px; text-align:center;">
+        <p style="font-size:14px; color:var(--text-muted); margin-bottom:20px;">Para conocer disponibilidad, precios y condiciones, contáctenos directamente.</p>
+        <div class="cta-row" style="justify-content:center; gap:14px;">
+          <a href="#contacto" class="btn btn--primary" onclick="navTo('contacto')">Consultar disponibilidad</a>
+          <a href="#" onclick="waBtnRenta(); return false;" class="btn btn--outline">Preguntar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-banner">
+      <div class="container">
+        <div class="cta-banner__inner">
+          <div>
+            <h2 class="cta-banner__title">¿Necesita equipo para su proyecto?</h2>
+            <p class="cta-banner__sub">Cuéntenos las características y le encontramos la mejor opción.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a href="#contacto" class="btn btn--dark" onclick="navTo('contacto')">Solicitar información</a>
+            <a href="#" onclick="waBtnRodaje(); return false;" class="btn btn--outline-dark">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN: CONTACTO
+  ══════════════════════════════════════ -->
+  <section class="section-page hidden" id="contacto">
+    <div class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Atención personalizada</span>
+        <h1 class="page-hero__title">Solicitud de Servicio<br>y Soporte Técnico en Campo</h1>
+        <p class="page-hero__sub">Complete el formulario y un especialista evaluará su requerimiento a la brevedad.</p>
+      </div>
+    </div>
+
+    <div class="container section-body">
+      <form id="contactForm" novalidate>
+        <div class="form-grid">
+
+          <div>
+            <div class="form-group">
+              <label for="nombre">Nombre completo / Empresa *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej: Constructora Puebla S.A." required>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono de contacto *</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="Ej: 222 123 4567" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" placeholder="contacto@empresa.com">
+            </div>
+            <div class="form-group">
+              <label for="servicio">Tipo de servicio requerido *</label>
+              <select id="servicio" name="servicio" required>
+                <option value="">Seleccione una opción...</option>
+                <option value="Mantenimiento preventivo">Mantenimiento preventivo</option>
+                <option value="Mantenimiento correctivo">Mantenimiento correctivo</option>
+                <option value="Puesta en operación de equipos">Puesta en operación de equipos</option>
+                <option value="Renta de maquinaria">Renta de maquinaria</option>
+                <option value="Compra de aditamentos">Compra de aditamentos</option>
+                <option value="Servicio de Motor o Sistema Eléctrico">Servicio de Motor o Sistema Eléctrico</option>
+                <option value="Consultoría técnica">Consultoría técnica</option>
+                <option value="Soldadura">Soldadura</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for="marca">Marca de la maquinaria</label>
+              <input type="text" id="marca" name="marca" placeholder="Ej: Caterpillar, Komatsu, John Deere">
+            </div>
+            <div class="form-group">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                <label for="modelo" style="margin-bottom:0">Modelo o serie específica</label>
+                <button type="button" class="form-guide-btn" onclick="openModal('modalGuia')">GUÍA DE CLASIFICACIÓN DE MAQUINARIA</button>
+              </div>
+              <input type="text" id="modelo" name="modelo" placeholder="Ej: Caterpillar 320DL">
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripción de la falla o requerimiento *</label>
+              <textarea id="descripcion" name="descripcion" placeholder="Describa con detalle el problema o el servicio que necesita. Por ejemplo: la excavadora no enciende, pierde aceite hidráulico, requiere mantenimiento a las 500 horas, etc." required></textarea>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-note">
+          <strong>Nota sobre consultoría técnica:</strong>
+          Las asesorías para resolver dudas sobre diagnósticos previos, diagramas o compatibilidad de componentes generan un costo por honorarios profesionales.
+          Las cotizaciones de mano de obra para reparaciones, puestas en operación o contratos de mantenimiento son siempre <span class="accent">sin costo</span>.
+        </div>
+
+        <button type="submit" class="form-submit">Enviar solicitud →</button>
+      </form>
+
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="contact-card__label">Teléfono</div>
+          <a href="tel:2225491442" class="contact-card__value">222 549 1442</a>
+          <p class="contact-card__sub">Emergencias 24 horas</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card__label">Correo</div>
+          <a href="mailto:dieselpromaquinaria@gmail.com" class="contact-card__value contact-card__value--sm">dieselpromaquinaria@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card__label">WhatsApp</div>
+          <a href="#" onclick="waBtnContacto(); return false;" class="btn btn--wa" style="margin-top:8px">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Abrir WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER — común a todas las secciones
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+
+        <div class="footer__brand">
+          <div class="footer__brand-top">
+            <img src="DIESELPRO MAQUINARIA LOGO.jpeg" alt="DIESELPRO MAQUINARIA" class="footer__logo">
+            <span class="footer__brand-name">DIESELPRO <em>MAQUINARIA</em></span>
+          </div>
+          <p class="footer__tagline">
+            15 Años de Excelencia en Soporte Técnico para Maquinaria Pesada.
+            <br>Servicio de Atención de Emergencias Mecánicas las 24 Horas.
+          </p>
+        </div>
+
+        <div class="footer__nav">
+          <h4 class="footer__nav-title">Navegación</h4>
+          <a href="#inicio"   onclick="navTo('inicio')">Inicio</a>
+          <a href="#nosotros" onclick="navTo('nosotros')">Quiénes Somos</a>
+          <a href="#servicio" onclick="navTo('servicio')">Servicio y Motor</a>
+          <a href="#rodaje"   onclick="navTo('rodaje')">Tren de Rodaje</a>
+          <a href="#renta"    onclick="navTo('renta')">Renta y Venta</a>
+          <a href="#contacto" onclick="navTo('contacto')">Contacto</a>
+        </div>
+
+        <div class="footer__contact">
+          <h4 class="footer__nav-title">Contacto Directo</h4>
+          <a href="tel:2225491442">222 549 1442</a>
+          <a href="mailto:dieselpromaquinaria@gmail.com">dieselpromaquinaria@gmail.com</a>
+          <a href="#" onclick="waBtnFooter(); return false;" class="btn btn--wa btn--wa-sm">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 DIESELPRO MAQUINARIA. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ MODAL: Guía de clasificación ══ -->
+  <div class="modal-overlay" id="modalGuia" role="dialog" aria-modal="true" aria-labelledby="modalGuiaTitle">
+    <div class="modal">
+      <button class="modal__close" onclick="closeModal('modalGuia')" aria-label="Cerrar">✕</button>
+      <h3 class="modal__title" id="modalGuiaTitle">Guía de Clasificación de Maquinaria Pesada</h3>
+      <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px; line-height:1.6;">
+        La maquinaria pesada no se clasifica por un único modelo, sino por familias de equipos.
+        Cada fabricante (Caterpillar, Komatsu, John Deere) produce distintas series para cada categoría.
+      </p>
+      <ul class="modal__list">
+        <li><strong>Excavadoras</strong>Usadas para excavar, levantar y mover tierra o materiales. Disponibles sobre orugas (terrenos irregulares) o sobre ruedas.</li>
+        <li><strong>Bulldozers (Tractores de orugas)</strong>Cuchilla frontal pesada para empujar tierra, nivelar terrenos y desbroce.</li>
+        <li><strong>Retroexcavadoras</strong>Cucharón delantero para cargar y pala trasera para excavación de zanjas. Equipos versátiles.</li>
+        <li><strong>Cargadores Frontales</strong>Gran cucharón frontal sobre neumáticos, ideales para recoger y cargar materiales sueltos (arena, grava).</li>
+        <li><strong>Motoniveladoras</strong>Cuchilla ajustable para nivelar suelo, dar pendiente a superficies y asegurar acabados planos en carreteras.</li>
+        <li><strong>Compactadoras (Rodillos)</strong>Aplanado y compactado de tierra, asfalto o cimientos con tambores de acero pesados o neumáticos.</li>
+        <li><strong>Camiones Articulados</strong>Gran capacidad para transportar y descargar material dentro de la obra o minas.</li>
+      </ul>
+      <div style="margin-top:20px; text-align:right;">
+        <button class="btn btn--outline" onclick="closeModal('modalGuia')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
