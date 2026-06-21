@@ -470,11 +470,15 @@ gap: 56px; align-items: center;
   }
 
   /* Logo y hamburguesa en la nav */
-  .nav-logo {
+.nav-logo {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     gap: 8px;
+    width: 100%;
   }
+
   .nav-logo img { height: 32px; width: auto; }
   .nav-logo span {
     font-family: var(--display);
@@ -533,18 +537,23 @@ gap: 56px; align-items: center;
     width: 100%;
     height: auto;
   }
-  .main-nav.open .nav-logo {
+.main-nav.open .nav-logo {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 8px 16px;
     width: 100%;
     border-bottom: 1px solid var(--steel3);
+    flex-direction: row;
   }
   .main-nav.open .nav-hamburger {
     display: flex;
+    margin-left: auto;
   }
-  
+  .main-nav__inner .nav-hamburger {
+    margin-left: auto;
+  }
+
   
   .nav-link--cta { margin-left: 0; }
 
