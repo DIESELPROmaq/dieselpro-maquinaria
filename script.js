@@ -171,15 +171,15 @@ if (contactForm) {
     const nombre      = val('nombre');
     const telefono    = val('telefono');
     const emailVal    = val('email')       || 'No proporcionado';
-    const servicioEl  = document.getElementById('servicio');
+    const servicioEl  = document.querySelector('select[id="servicio"]');
     const servicio    = servicioEl ? servicioEl.value.trim() : '';
     const marca       = val('marca')       || 'No especificada';
     const modelo      = val('modelo')      || 'No especificado';
     const descripcion = val('descripcion');
 
 // Validación
-    if (!nombre || !telefono || !servicio || !descripcion) {
-      toast('Por favor completa los campos obligatorios marcados con *');
+    if (!nombre || !telefono || !descripcion) {
+        toast('Por favor completa los campos obligatorios marcados con *');
       return;
     }
 
