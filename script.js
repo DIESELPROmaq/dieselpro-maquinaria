@@ -176,7 +176,8 @@ if (contactForm) {
     const modelo      = val('modelo')      || 'No especificado';
     const descripcion = val('descripcion');
 
-    // Validación
+// Validación
+    alert('nombre:' + nombre + ' | telefono:' + telefono + ' | servicio:' + servicio + ' | descripcion:' + descripcion);
     if (!nombre || !telefono || !servicio || !descripcion) {
       toast('Por favor completa los campos obligatorios marcados con *');
       return;
