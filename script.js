@@ -12,7 +12,7 @@
 
 const EMAILJS_PUBLIC_KEY  = 'uhRByrzDPqzbNJSLS';
 const EMAILJS_SERVICE_ID  = 'service_atf76ys';
-const EMAILJS_TEMPLATE_ID = 'ime19ps';
+const EMAILJS_TEMPLATE_ID = 'template_58cdog3';
 const EMAILJS_ENABLED     = true;
 
 
