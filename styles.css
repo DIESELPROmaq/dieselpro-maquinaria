@@ -448,9 +448,9 @@ gap: 56px; align-items: center;
   .hamburger { display: none; }
 
   /* Nav fija debajo del topbar */
-  .main-nav {
+.main-nav {
     position: fixed;
-    top: auto;
+    top: 130px;
     left: 0; right: 0;
     height: var(--nav-h);
     z-index: 199;
