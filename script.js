@@ -161,12 +161,13 @@ document.addEventListener('keydown', e => {
 //  → Siempre envía a WhatsApp con mensaje estructurado
 //  → Si EMAILJS_ENABLED = true, también envía correo
 // ============================================================
-const contactForm = document.getElementById('contactForm');
 
-if (contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
 
+async function enviarFormulario() {
+  const contactForm = document.getElementById('contactForm');
+  if (!contactForm) return;
+
+  
     // Recopilar valores
     const nombre      = val('nombre');
     const telefono    = val('telefono');
@@ -183,6 +184,7 @@ if (contactForm) {
       return;
     }
 
+    console.log('Formulario enviando...');
     const submitBtn = contactForm.querySelector('.form-submit');
     submitBtn.disabled = true;
     submitBtn.textContent = 'Enviando…';
@@ -201,7 +203,16 @@ if (contactForm) {
       `*Descripción de la falla o requerimiento:*\n${descripcion}\n\n` +
       `━━━━━━━━━━━━━━━━━━━━━━━━`
     );
-    window.open(`https://wa.me/522225491442?text=${waMsg}`, '_blank');
+    const waMsgCorto = encodeURIComponent(
+      `*Nueva solicitud desde la web*\n\nNombre: ${nombre}\nTeléfono: ${telefono}\nServicio: ${servicio}\n\nRevisa tu correo para los detalles completos.`
+    );
+    // Abrir WhatsApp: en móvil usar location.href para evitar bloqueo de popups
+    const waUrl = `https://wa.me/522225491442?text=${waMsgCorto}`;
+    if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+      window.location.href = waUrl;
+    } else {
+      window.open(waUrl, '_blank');
+    }
 
     // ── 2. EmailJS (opcional) ─────────────────────────────────
     if (EMAILJS_ENABLED && typeof emailjs !== 'undefined') {
@@ -212,20 +223,20 @@ if (contactForm) {
           servicio, marca, modelo, descripcion,
           fecha: new Date().toLocaleDateString('es-MX', { dateStyle: 'full' })
         });
-        toast('Solicitud enviada por WhatsApp y correo electrónico.');
+        toast('¡Solicitud enviada! Nos pondremos en contacto pronto.');
       } catch (err) {
         console.error('EmailJS:', err);
-        toast('WhatsApp abierto. Revisa la configuración de EmailJS para correos.');
+        toast('¡Solicitud enviada por WhatsApp!');
       }
     } else {
-      toast('WhatsApp abierto con tu solicitud.');
+      toast('¡Solicitud enviada por WhatsApp!');
     }
 
     contactForm.reset();
     submitBtn.disabled = false;
-    submitBtn.textContent = 'Enviar solicitud →';
-  });
+submitBtn.textContent = 'Enviar solicitud →';
 }
+
 
 // Helpers
 function val(id) {
