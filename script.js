@@ -206,23 +206,19 @@ async function enviarFormulario() {
     const waMsgCorto = encodeURIComponent(
       `*Nueva solicitud desde la web*\n\nNombre: ${nombre}\nTeléfono: ${telefono}\nServicio: ${servicio}\n\nRevisa tu correo para los detalles completos.`
     );
-    // Abrir WhatsApp: en móvil usar location.href para evitar bloqueo de popups
-    const waUrl = `https://wa.me/522225491442?text=${waMsgCorto}`;
-    if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
-      window.location.href = waUrl;
-    } else {
-      window.open(waUrl, '_blank');
-    }
 
     // ── 2. EmailJS (opcional) ─────────────────────────────────
     if (EMAILJS_ENABLED && typeof emailjs !== 'undefined') {
       try {
         emailjs.init(EMAILJS_PUBLIC_KEY);
-        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          tipo_mensaje: 'Formulario de contacto web',
           nombre, telefono, email: emailVal,
           servicio, marca, modelo, descripcion,
+          mensaje: descripcion,
+          seccion: 'Contacto',
           fecha: new Date().toLocaleDateString('es-MX', { dateStyle: 'full' })
-        });
+        });        
         toast('¡Solicitud enviada! Nos pondremos en contacto pronto.');
       } catch (err) {
         console.error('EmailJS:', err);

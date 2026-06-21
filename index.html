@@ -129,36 +129,36 @@
       </div>
     </div>
 
-    <!-- Servicios resumen -->
+<!-- Servicios resumen -->
     <div class="container" style="padding-top:64px; padding-bottom:64px;">
       <div class="section-label"><h2>Nuestros Servicios</h2></div>
       <div class="services-grid">
-        <a href="#servicio" class="srv-card" onclick="navTo('servicio')">
+        <a href="javascript:void(0)" class="srv-card" onclick="openModal('modal-diagnostico')">
           <div class="srv-card__title">Diagnóstico Avanzado</div>
           <p class="srv-card__text">Escaneo electrónico y evaluación de parámetros en tiempo real para fallas críticas en motor, transmisión e hidráulicos.</p>
           <span class="srv-card__link">Ver más →</span>
         </a>
-        <a href="#servicio" class="srv-card" onclick="navTo('servicio')">
+        <a href="javascript:void(0)" class="srv-card" onclick="openModal('modal-motor')">
           <div class="srv-card__title">Mecánica de Motor</div>
           <p class="srv-card__text">Overhaul integral, instalación de bombas de inyección y reemplazo de inyectores para Caterpillar 320DL.</p>
           <span class="srv-card__link">Ver más →</span>
         </a>
-        <a href="#servicio" class="srv-card" onclick="navTo('servicio')">
+        <a href="javascript:void(0)" class="srv-card" onclick="openModal('modal-electrico')">
           <div class="srv-card__title">Sistema Eléctrico</div>
           <p class="srv-card__text">Monitor 320D y arnés principal: instalación, configuración técnica y diagnóstico de sistemas eléctricos avanzados.</p>
           <span class="srv-card__link">Ver más →</span>
         </a>
-        <a href="#rodaje" class="srv-card" onclick="navTo('rodaje')">
+        <a href="javascript:void(0)" class="srv-card" onclick="openModal('modal-rodaje')">
           <div class="srv-card__title">Tren de Rodaje</div>
           <p class="srv-card__text">Reemplazo de eslabones, venta de botes y martillos hidráulicos para excavadoras sobre orugas.</p>
           <span class="srv-card__link">Ver más →</span>
         </a>
-        <a href="#servicio" class="srv-card" onclick="navTo('servicio')">
+        <a href="javascript:void(0)" class="srv-card" onclick="openModal('modal-preventivo')">
           <div class="srv-card__title">Mantenimiento Preventivo</div>
           <p class="srv-card__text">Programas basados en horas de operación (250h, 500h, 1000h) para prolongar la vida útil del equipo.</p>
           <span class="srv-card__link">Ver más →</span>
         </a>
-        <a href="#renta" class="srv-card" onclick="navTo('renta')">
+        <a href="javascript:void(0)" class="srv-card" onclick="openModal('modal-renta')">
           <div class="srv-card__title">Renta y Venta de Equipos</div>
           <p class="srv-card__text">Flotilla disponible para renta semanal, quincenal o mensual. Venta de maquinaria usada con historial verificado.</p>
           <span class="srv-card__link">Ver más →</span>
@@ -186,6 +186,7 @@
     </div>
 
   </section>
+
 
 <!-- ══════════════════════════════════════
        SECCIÓN: QUIÉNES SOMOS
@@ -665,7 +666,7 @@
           Las cotizaciones de mano de obra para reparaciones, puestas en operación o contratos de mantenimiento son siempre <span class="accent">sin costo</span>.
         </div>
 
-        <button type="submit" class="form-submit">Enviar solicitud →</button>
+        <button type="button" class="form-submit" onclick="enviarFormulario()">Enviar solicitud →</button>
       </form>
 
       <div class="contact-cards">
@@ -733,6 +734,84 @@
       </div>
     </div>
   </footer>
+
+<!-- Modales desde inicio -->
+  <div class="modal-overlay" id="modal-motor">
+    <div class="modal">
+      <button class="modal__close" onclick="closeModal('modal-motor')">✕</button>
+      <div class="modal__tag">Motor</div>
+      <h3 class="modal__title">Mecánica Especializada y Motor</h3>
+      <p class="modal__body">Realizamos overhaul integral de motores utilizando componentes originales para asegurar la máxima compresión, eficiencia de combustible y vida útil del equipo.</p>
+      <ul class="modal__list-detail">
+        <li>Servicio de motor original con componentes OEM</li>
+        <li>Instalación de bombas de inyección con torque de fábrica</li>
+        <li>Reemplazo de inyectores nuevos para Caterpillar 320DL</li>
+        <li>Calibración y puesta a punto del sistema de combustible</li>
+      </ul>
+      <div class="modal__actions">
+        <a href="#" onclick="waBtnServicio(); return false;" class="btn btn--primary">Solicitar por WhatsApp</a>
+        <button class="btn btn--outline" onclick="closeModal('modal-motor')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-electrico">
+    <div class="modal">
+      <button class="modal__close" onclick="closeModal('modal-electrico')">✕</button>
+      <div class="modal__tag">Sistema Eléctrico</div>
+      <h3 class="modal__title">Sistema Eléctrico Avanzado 320D</h3>
+      <p class="modal__body">Especialistas en diagnóstico y reparación del sistema eléctrico de excavadoras Caterpillar 320D. Trabajamos con equipos de escaneo avanzado para detectar fallas eléctricas con precisión.</p>
+      <ul class="modal__list-detail">
+        <li>Instalación y configuración del Monitor 320D</li>
+        <li>Reemplazo completo de arnés principal 320D</li>
+        <li>Diagnóstico de códigos de falla eléctricos</li>
+        <li>Prevención de cortocircuitos y fallas del sistema</li>
+      </ul>
+      <div class="modal__actions">
+        <a href="#" onclick="waBtnServicio(); return false;" class="btn btn--primary">Solicitar por WhatsApp</a>
+        <button class="btn btn--outline" onclick="closeModal('modal-electrico')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-rodaje">
+    <div class="modal">
+      <button class="modal__close" onclick="closeModal('modal-rodaje')">✕</button>
+      <div class="modal__tag">Tren de Rodaje</div>
+      <h3 class="modal__title">Tren de Rodaje y Aditamentos</h3>
+      <p class="modal__body">Servicio especializado de reemplazo de componentes de rodaje directamente en campo. También suministramos aditamentos de alta resistencia para excavadoras.</p>
+      <ul class="modal__list-detail">
+        <li>Reemplazo de eslabones para cadena de excavadora</li>
+        <li>Restauración de tensión y estabilidad de orugas</li>
+        <li>Venta de botes reforzados para excavación en roca</li>
+        <li>Venta de martillos hidráulicos nuevos para demolición</li>
+      </ul>
+      <div class="modal__actions">
+        <a href="#" onclick="waBtnRodaje(); return false;" class="btn btn--primary">Solicitar por WhatsApp</a>
+        <button class="btn btn--outline" onclick="closeModal('modal-rodaje')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-renta">
+    <div class="modal">
+      <button class="modal__close" onclick="closeModal('modal-renta')">✕</button>
+      <div class="modal__tag">Flotilla</div>
+      <h3 class="modal__title">Renta y Venta de Equipos</h3>
+      <p class="modal__body">Contamos con flotilla disponible para renta por periodos flexibles y un catálogo de maquinaria usada con historial de mantenimiento verificado.</p>
+      <ul class="modal__list-detail">
+        <li>Renta semanal, quincenal o mensual</li>
+        <li>Equipos con mantenimiento preventivo al corriente</li>
+        <li>Venta de maquinaria usada con historial verificado</li>
+        <li>Garantía de inversión segura y confiable</li>
+      </ul>
+      <div class="modal__actions">
+        <a href="#" onclick="waBtnRenta(); return false;" class="btn btn--primary">Solicitar por WhatsApp</a>
+        <button class="btn btn--outline" onclick="closeModal('modal-renta')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
 
   <!-- ══ MODAL: Guía de clasificación ══ -->
   <div class="modal-overlay" id="modalGuia" role="dialog" aria-modal="true" aria-labelledby="modalGuiaTitle">
