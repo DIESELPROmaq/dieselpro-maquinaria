@@ -519,18 +519,22 @@ gap: 56px; align-items: center;
     height: auto;
     width: 100%;
   }
-  .main-nav.open {
+
+.main-nav.open {
     height: auto;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     box-shadow: 0 8px 28px rgba(0,0,0,.7);
   }
   .main-nav.open .main-nav__inner {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
     width: 100%;
+    height: 46px;
   }
+  
   .nav-link--cta { margin-left: 0; }
 
   /* Header offset para móvil */

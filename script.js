@@ -68,10 +68,18 @@ const hamburger = document.getElementById('hamburger');
 const mainNav   = document.getElementById('mainNav');
 const navHamburger = document.getElementById('navHamburger');
 if (navHamburger && mainNav) {
-  navHamburger.addEventListener('click', () => {
-    const isOpen = navHamburger.classList.toggle('open');
-    navHamburger.setAttribute('aria-expanded', isOpen);
-    mainNav.classList.toggle('open', isOpen);
+  navHamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = mainNav.classList.contains('open');
+    if (isOpen) {
+      navHamburger.classList.remove('open');
+      navHamburger.setAttribute('aria-expanded', 'false');
+      mainNav.classList.remove('open');
+    } else {
+      navHamburger.classList.add('open');
+      navHamburger.setAttribute('aria-expanded', 'true');
+      mainNav.classList.add('open');
+    }
   });
 }
 
@@ -100,11 +108,12 @@ if (hamburger && mainNav) {
 // Cerrar menú al hacer clic fuera
 document.addEventListener('click', (e) => {
   if (mainNav && mainNav.classList.contains('open')) {
-    if (!mainNav.contains(e.target) && !hamburger.contains(e.target)) {
+    if (!mainNav.contains(e.target) && (!hamburger || !hamburger.contains(e.target)) && (!navHamburger || !navHamburger.contains(e.target))) {
       closeHamburger();
     }
   }
 });
+
 
 // ============================================================
 //  TOPBAR — sombra al hacer scroll
