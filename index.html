@@ -369,7 +369,7 @@
     <div class="modal">
       <button class="modal__close" onclick="closeModal('modal-diagnostico')">✕</button>
       <div class="modal__tag">Mantenimiento</div>
-      <h3 class="modal__title">Servicio de Diagnóstico</h3>
+      <h3 class="modal__title">Servicio de Diagnóstico de Maquinaria Pesada o Escaneo Electrónico de Excavadoras</h3>
       <p class="modal__body">Mediante escaneo electrónico avanzado conectamos directamente a la computadora de la máquina para leer códigos de falla activos e históricos, evaluar parámetros de operación en tiempo real y comparar contra los valores de fábrica.</p>
       <p class="modal__body">Detectamos fallas en motor, transmisión, sistema hidráulico, sistema de enfriamiento y componentes eléctricos antes de que se conviertan en paros costosos. Entregamos un reporte técnico con las fallas encontradas y las acciones correctivas recomendadas.</p>
       <ul class="modal__list-detail">
@@ -419,7 +419,8 @@
         <li>Servicio de 1000 horas: overhaul de componentes mayores</li>
         <li>Bitácora de mantenimiento actualizada por equipo</li>
         <li>Alertas programadas para próximos servicios</li>
-      </ul>
+        <a href="#contacto" class="btn btn--primary" onclick="navTo('contacto')" style="margin-top:16px; display:inline-flex;">📅 Agendar Mantenimiento</a>
+            </ul>
       <div class="modal__actions">
         <a href="#" onclick="waBtnModal('preventivo'); return false;" class="btn btn--primary">Solicitar por WhatsApp</a>
         <button class="btn btn--outline" onclick="closeModal('modal-preventivo')">Cerrar</button>
@@ -432,12 +433,12 @@
       <button class="modal__close" onclick="closeModal('modal-correctivo')">✕</button>
       <div class="modal__tag">Correctivo</div>
       <h3 class="modal__title">Mantenimiento Correctivo</h3>
-      <p class="modal__body">Reparación integral de fallas mecánicas, hidráulicas y eléctricas en maquinaria pesada. Contamos con taller móvil para atención en campo, reduciendo al mínimo el tiempo de traslado y el costo de grúas o plataformas.</p>
+      <p class="modal__body">Reparación integral de fallas mecánicas, hidráulicas y eléctricas en maquinaria pesada. Contamos con taller móvil de maquinaria pesada para atención en campo, reduciendo al mínimo el tiempo de traslado y el costo de grúas o plataformas.</p>
       <p class="modal__body">Trabajamos con refacciones de calidad OEM y aftermarket certificado, garantizando que cada reparación cumpla con los estándares de ingeniería del fabricante original.</p>
       <ul class="modal__list-detail">
         <li>Diagnóstico previo para identificar causa raíz de la falla</li>
         <li>Reparación de motor, transmisión e hidráulicos</li>
-        <li>Atención en campo con taller móvil equipado</li>
+        <li>Atención en campo con taller móvil de maquinaria pesada equipado</li>
         <li>Refacciones OEM y aftermarket certificado</li>
         <li>Garantía sobre la reparación realizada</li>
       </ul>
@@ -766,7 +767,8 @@
         <li>Reemplazo completo de arnés principal 320D</li>
         <li>Diagnóstico de códigos de falla eléctricos</li>
         <li>Prevención de cortocircuitos y fallas del sistema</li>
-      </ul>
+        <li><strong>Monitor CAT 320D:</strong> instalación, configuración y reemplazo</li>
+            </ul>
       <div class="modal__actions">
         <a href="#" onclick="waBtnServicio(); return false;" class="btn btn--primary">Solicitar por WhatsApp</a>
         <button class="btn btn--outline" onclick="closeModal('modal-electrico')">Cerrar</button>
@@ -781,8 +783,8 @@
       <h3 class="modal__title">Tren de Rodaje y Aditamentos</h3>
       <p class="modal__body">Servicio especializado de reemplazo de componentes de rodaje directamente en campo. También suministramos aditamentos de alta resistencia para excavadoras.</p>
       <ul class="modal__list-detail">
-        <li>Reemplazo de eslabones para cadena de excavadora</li>
-        <li>Restauración de tensión y estabilidad de orugas</li>
+        <li>Reemplazo de eslabones para cadena de excavadora <strong>en campo</strong></li>
+        <li>Restauración de tensión y estabilidad de orugas <strong>a domicilio</strong></li>
         <li>Venta de botes reforzados para excavación en roca</li>
         <li>Venta de martillos hidráulicos nuevos para demolición</li>
       </ul>
@@ -807,8 +809,9 @@
       </ul>
       <div class="modal__actions">
         <a href="#" onclick="waBtnRenta(); return false;" class="btn btn--primary">Solicitar por WhatsApp</a>
-        <button class="btn btn--outline" onclick="closeModal('modal-renta')">Cerrar</button>
-      </div>
+        <a href="#contacto" class="btn btn--primary" onclick="closeModal('modal-renta'); navTo('contacto');">🚜 Solicitar Catálogo de Renta y Venta</a>
+           <button class="btn btn--outline" onclick="closeModal('modal-renta')">Cerrar</button>
+            </div>
     </div>
   </div>
 
