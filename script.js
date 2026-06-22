@@ -280,24 +280,7 @@ function toast(msg) {
 
 // ── Funciones de WhatsApp por botón ──
 async function registrarContacto(datos) {
-  if (typeof emailjs === 'undefined') return;
-  try {
-    emailjs.init(EMAILJS_PUBLIC_KEY);
-    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      tipo_mensaje: datos.tipo      || 'Contacto general',
-      nombre:       datos.nombre    || 'No proporcionado',
-      telefono:     datos.telefono  || 'No proporcionado',
-      email:        datos.email     || 'No proporcionado',
-      servicio:     datos.servicio  || 'No especificado',
-      marca:        datos.marca     || 'No especificada',
-      modelo:       datos.modelo    || 'No especificado',
-      mensaje:      datos.mensaje   || 'Sin mensaje adicional',
-      seccion:      datos.seccion   || 'No especificada',
-      fecha:        new Date().toLocaleString('es-MX', { dateStyle: 'full', timeStyle: 'short' })
-    });
-  } catch (err) {
-    console.error('EmailJS error:', err);
-  }
+  // Desactivado: solo se recaban datos del formulario completo
 }
 
 function waBtn(tipo, mensaje, seccion, datos = {}) {
