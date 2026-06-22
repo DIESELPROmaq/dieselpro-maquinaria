@@ -576,12 +576,11 @@ gap: 56px; align-items: center;
 
 
 
-
 /* Móvil pequeño (≤480px) */
 @media (max-width: 480px) {
   .hero { padding: 40px 0; }
   .section-body { padding: 40px 0; }
-  .cta-row { flex-direction: column; align-items: flex-start; }
+  .cta-row { flex-direction: column; align-items: center; }
   .logo__text { display: block; font-size: 14px; }
   .logo__img { height: 50px; }
   .stat-grid { grid-template-columns: 1fr; }
