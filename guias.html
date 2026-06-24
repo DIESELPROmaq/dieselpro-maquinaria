@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guías de Diagnóstico para Maquinaria Pesada — DIESELPRO MAQUINARIA</title>
+  <meta name="description" content="Códigos de falla, síntomas y diagnóstico rápido para Caterpillar, Komatsu, John Deere, Volvo CE, Case y Hitachi. Guías técnicas especializadas para maquinaria pesada. Servicio en campo en toda la República Mexicana. Consultoría técnica internacional.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #1A1A1A;
+      --bg2:       #222222;
+      --bg3:       #2A2A2A;
+      --amber:     #E8A020;
+      --amber-dim: #C47A10;
+      --text:      #F0EDE8;
+      --text-muted:#A09A90;
+      --border:    #333333;
+      --green:     #4CAF50;
+      --yellow:    #FFC107;
+      --red:       #F44336;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--bg);
+      border-bottom: 2px solid var(--amber);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .topbar__logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .topbar__logo span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .topbar__logo em { color: var(--amber); font-style: normal; }
+    .topbar__back {
+      background: var(--amber);
+      color: #111;
+      border: none;
+      padding: 8px 18px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .topbar__back:hover { background: var(--amber-dim); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(180deg, #111 0%, var(--bg) 100%);
+      padding: 56px 24px 48px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero__eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: rgba(232,160,32,0.1);
+      border: 1px solid rgba(232,160,32,0.3);
+      display: inline-block;
+      padding: 4px 14px;
+      margin-bottom: 20px;
+    }
+    .hero__title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .hero__title em { color: var(--amber); font-style: normal; }
+    .hero__sub {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      font-size: 15px;
+    }
+
+    /* ── SEARCH ── */
+    .search-wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .search-wrap input {
+      width: 100%;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--amber);
+      color: var(--text);
+      padding: 14px 50px 14px 18px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      outline: none;
+    }
+    .search-wrap input::placeholder { color: var(--text-muted); }
+    .search-wrap input:focus { border-color: var(--amber); }
+    .search-icon {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+    .search-stats {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    /* ── CONTAINER ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── FILTERS ── */
+    .filters {
+      padding: 28px 0 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+    .filter-btn {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 16px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: #111;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      padding: 40px 0 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .section-header h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .brand-badge {
+      background: var(--amber);
+      color: #111;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+    }
+
+    /* ── CARDS GRID ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--border);
+      padding: 20px;
+      transition: border-color .2s;
+    }
+    .card:hover { border-top-color: var(--amber); }
+    .card.urgency-red { border-top-color: var(--red); }
+    .card.urgency-yellow { border-top-color: var(--yellow); }
+    .card.urgency-green { border-top-color: var(--green); }
+
+    .card__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .card__code {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--amber);
+      letter-spacing: 1px;
+    }
+    .card__urgency {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .urgency-red .card__urgency   { background: rgba(244,67,54,.15); color: #F44336; border: 1px solid rgba(244,67,54,.3); }
+    .urgency-yellow .card__urgency { background: rgba(255,193,7,.15); color: #FFC107; border: 1px solid rgba(255,193,7,.3); }
+    .urgency-green .card__urgency  { background: rgba(76,175,80,.15); color: #4CAF50; border: 1px solid rgba(76,175,80,.3); }
+
+    .card__title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .card__section-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 12px 0 6px;
+    }
+    .card__list {
+      list-style: none;
+      padding: 0;
+    }
+    .card__list li {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 3px 0 3px 14px;
+      position: relative;
+    }
+    .card__list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-size: 11px;
+    }
+
+    /* ── VALUES TABLE ── */
+    .values-section { margin-bottom: 56px; }
+    .values-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .values-table th {
+      background: var(--bg3);
+      color: var(--amber);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 2px solid var(--amber);
+    }
+    .values-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .values-table tr:hover td { background: var(--bg3); color: var(--text); }
+    .values-table td:first-child { color: var(--text); font-weight: 500; }
+
+    /* ── FMI TABLE ── */
+    .fmi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .fmi-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 16px;
+    }
+    .fmi-card__code {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--amber);
+      margin-bottom: 4px;
+    }
+    .fmi-card__desc {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .fmi-card__items {
+      list-style: none;
+      padding: 0;
+    }
+    .fmi-card__items li {
+      font-size: 12px;
+      color: var(--text-muted);
+      padding: 2px 0 2px 12px;
+      position: relative;
+    }
+    .fmi-card__items li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+    }
+
+    /* ── SYMPTOM SECTION ── */
+    .symptom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+    .symptom-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--amber);
+      padding: 18px;
+    }
+    .symptom-card__title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--amber);
+      padding: 48px 24px;
+      text-align: center;
+      margin-top: 56px;
+    }
+    .cta-section h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #111;
+      margin-bottom: 10px;
+    }
+    .cta-section p { color: #333; margin-bottom: 24px; }
+    .btn-dark {
+      background: #111;
+      color: var(--amber);
+      border: none;
+      padding: 14px 32px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .btn-dark:hover { background: #000; }
+
+    /* ── NO RESULTS ── */
+    .no-results {
+      text-align: center;
+      padding: 60px 24px;
+      color: var(--text-muted);
+      display: none;
+    }
+    .no-results h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111;
+      padding: 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--amber); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .topbar { flex-direction: column; gap: 12px; text-align: center; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .fmi-grid { grid-template-columns: 1fr 1fr; }
+      .symptom-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="topbar__logo">
+    <span>DIESELPRO <em>MAQUINARIA</em></span>
+  </a>
+  <a href="index.html#contacto" class="topbar__back">← Solicitar Diagnóstico</a>
+</header>
+
+<div class="hero">
+  <span class="hero__eyebrow">Base de Conocimiento Técnico</span>
+  <h1 class="hero__title">Guías de <em>Diagnóstico</em><br>Maquinaria Pesada</h1>
+  <p class="hero__sub">Códigos de falla, síntomas y diagnóstico rápido para Caterpillar, Komatsu, John Deere, Volvo CE, Case y Hitachi.</p>
+  <div class="search-wrap">
+    <input type="text" id="searchInput" placeholder="Buscar código, síntoma o marca… ej: CID 0091, humo negro, Komatsu">
+    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+  </div>
+  <div class="search-stats" id="searchStats">Mostrando todos los códigos</div>
+</div>
+
+<div class="container">
+  <div class="filters">
+    <span class="filter-label">Filtrar:</span>
+    <button class="filter-btn active" onclick="filterBrand('all', this)">Todas las marcas</button>
+    <button class="filter-btn" onclick="filterBrand('cat', this)">Caterpillar</button>
+    <button class="filter-btn" onclick="filterBrand('komatsu', this)">Komatsu</button>
+    <button class="filter-btn" onclick="filterBrand('deere', this)">John Deere</button>
+    <button class="filter-btn" onclick="filterBrand('volvo', this)">Volvo CE</button>
+    <button class="filter-btn" onclick="filterBrand('case', this)">Case</button>
+    <button class="filter-btn" onclick="filterBrand('hitachi', this)">Hitachi</button>
+    <button class="filter-btn" onclick="filterBrand('fmi', this)">Guía FMI</button>
+    <button class="filter-btn" onclick="filterBrand('symptom', this)">Por Síntoma</button>
+  </div>
+</div>
+
+<div class="container" id="mainContent">
+
+  <!-- ── CATERPILLAR ── -->
+  <div class="brand-section" data-brand="cat">
+    <div class="section-header">
+      <h2>Caterpillar</h2>
+      <span class="brand-badge">CAT</span>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card urgency-yellow" data-brand="cat" data-keywords="CID 0091 sensor acelerador TPS RPM inestables potencia limitada">
+        <div class="card__header">
+          <span class="card__code">CID 0091</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Sensor de Posición del Acelerador (TPS)</div>
+        <div class="card__section-title">Síntomas</div>
+        <ul class="card__list">
+          <li>Motor sin respuesta al acelerador</li>
+          <li>RPM inestables</li>
+          <li>Potencia limitada</li>
+        </ul>
+        <div class="card__section-title">Revisión rápida</div>
+        <ul class="card__list">
+          <li>Verificar alimentación de 5V al sensor</li>
+          <li>Revisar tierra del sensor</li>
+          <li>Medir señal variable en rango 0.5–4.5V</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-red" data-brand="cat" data-keywords="CID 0100 presión aceite motor alarma derate paro">
+        <div class="card__header">
+          <span class="card__code">CID 0100</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">Sensor de Presión de Aceite del Motor</div>
+        <div class="card__section-title">Síntomas</div>
+        <ul class="card__list">
+          <li>Alarma de presión activa</li>
+          <li>Derate del motor</li>
+          <li>Paro de protección automático</li>
+        </ul>
+        <div class="card__section-title">Revisión rápida</div>
+        <ul class="card__list">
+          <li>Medir presión mecánica real con manómetro</li>
+          <li>Revisar cableado del sensor</li>
+          <li>Comparar lectura ET vs manómetro externo</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="cat" data-keywords="CID 0110 temperatura refrigerante sobrecalentamiento arranque">
+        <div class="card__header">
+          <span class="card__code">CID 0110</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Sensor de Temperatura del Refrigerante</div>
+        <div class="card__section-title">Síntomas</div>
+        <ul class="card__list">
+          <li>Lecturas erráticas de temperatura</li>
+          <li>Sobrecalentamiento falso</li>
+          <li>Arranque difícil en frío</li>
+        </ul>
+        <div class="card__section-title">Revisión rápida</div>
+        <ul class="card__list">
+          <li>Verificar resistencia del sensor (NTC)</li>
+          <li>Revisar conectores sulfatados o con humedad</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-red" data-brand="cat" data-keywords="CID 0164 presión HEUI no arranca humo blanco baja potencia">
+        <div class="card__header">
+          <span class="card__code">CID 0164</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">Sensor de Presión HEUI</div>
+        <div class="card__section-title">Síntomas</div>
+        <ul class="card__list">
+          <li>Motor no arranca</li>
+          <li>Humo blanco excesivo</li>
+          <li>Baja potencia severa</li>
+        </ul>
+        <div class="card__section-title">Revisión rápida</div>
+        <ul class="card__list">
+          <li>Verificar presión de aceite HEUI (mín. 500 PSI)</li>
+          <li>Revisar IAPCV (válvula de control)</li>
+          <li>Inspeccionar fugas internas en bomba</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="cat" data-keywords="CID 0168 voltaje sistema múltiples códigos reinicios ECM">
+        <div class="card__header">
+          <span class="card__code">CID 0168</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Voltaje del Sistema</div>
+        <div class="card__section-title">Síntomas</div>
+        <ul class="card__list">
+          <li>Múltiples códigos activos simultáneos</li>
+          <li>Reinicios inesperados del ECM</li>
+        </ul>
+        <div class="card__section-title">Valores de referencia</div>
+        <ul class="card__list">
+          <li>Motor apagado: 12.6V mínimo</li>
+          <li>Motor encendido: 13.5–14.5V</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-red" data-brand="cat" data-keywords="CID 0190 sensor RPM motor se apaga no arranca lectura intermitente">
+        <div class="card__header">
+          <span class="card__code">CID 0190</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">Sensor RPM (Cigüeñal)</div>
+        <div class="card__section-title">Síntomas</div>
+        <ul class="card__list">
+          <li>Motor se apaga repentinamente</li>
+          <li>No arranca o arranque intermitente</li>
+          <li>Lectura de RPM intermitente en pantalla</li>
+        </ul>
+        <div class="card__section-title">Revisión rápida</div>
+        <ul class="card__list">
+          <li>Limpiar punta magnética del sensor</li>
+          <li>Revisar separación con volante (0.8–1.5mm)</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="cat" data-keywords="CID 0247 data link J1939 comunicación perdida pantalla congelada CAN">
+        <div class="card__header">
+          <span class="card__code">CID 0247</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Data Link J1939</div>
+        <div class="card__section-title">Síntomas</div>
+        <ul class="card__list">
+          <li>Comunicación perdida entre módulos</li>
+          <li>Pantalla congelada o sin datos</li>
+        </ul>
+        <div class="card__section-title">Revisión rápida</div>
+        <ul class="card__list">
+          <li>Medir resistencia CAN: debe ser 60 Ohms entre CAN-H y CAN-L</li>
+          <li>Verificar terminadores de red en ambos extremos</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-red" data-brand="cat" data-keywords="CID 0590 ECM defectuoso múltiples fallas pérdida comunicación">
+        <div class="card__header">
+          <span class="card__code">CID 0590</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">ECM Defectuoso</div>
+        <div class="card__section-title">Síntomas</div>
+        <ul class="card__list">
+          <li>Múltiples fallas sin lógica aparente</li>
+          <li>Pérdida total de comunicación</li>
+        </ul>
+        <div class="card__section-title">Revisión rápida</div>
+        <ul class="card__list">
+          <li>Confirmar alimentaciones correctas al ECM</li>
+          <li>Confirmar tierras del ECM</li>
+          <li>Revisar integridad de red J1939</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="cat" data-keywords="SPN 94 presión combustible baja filtros bomba aire">
+        <div class="card__header">
+          <span class="card__code">SPN 94</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Presión de Combustible Baja</div>
+        <div class="card__section-title">Posibles causas</div>
+        <ul class="card__list">
+          <li>Filtros de combustible tapados</li>
+          <li>Bomba de transferencia desgastada</li>
+          <li>Aire en el sistema de combustible</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-red" data-brand="cat" data-keywords="SPN 100 presión aceite baja apagar nivel">
+        <div class="card__header">
+          <span class="card__code">SPN 100</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">Presión de Aceite Baja</div>
+        <div class="card__section-title">Acción inmediata</div>
+        <ul class="card__list">
+          <li>Apagar motor inmediatamente</li>
+          <li>Revisar nivel de aceite</li>
+          <li>No operar hasta resolver</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-red" data-brand="cat" data-keywords="SPN 110 temperatura refrigerante alta radiador ventilador termostato">
+        <div class="card__header">
+          <span class="card__code">SPN 110</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">Temperatura del Refrigerante Alta</div>
+        <div class="card__section-title">Posibles causas</div>
+        <ul class="card__list">
+          <li>Radiador sucio o tapado</li>
+          <li>Ventilador defectuoso</li>
+          <li>Termostato dañado</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="cat" data-keywords="SPN 157 presión riel combustible inyectores válvula reguladora">
+        <div class="card__header">
+          <span class="card__code">SPN 157</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Presión de Riel de Combustible Baja</div>
+        <div class="card__section-title">Posibles causas</div>
+        <ul class="card__list">
+          <li>Inyectores con retorno excesivo</li>
+          <li>Válvula reguladora de presión dañada</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="cat" data-keywords="Monitor CAT 320D instalación configuración reemplazo arnés principal">
+        <div class="card__header">
+          <span class="card__code">Monitor CAT 320D</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Monitor y Arnés Principal 320D</div>
+        <div class="card__section-title">Servicios</div>
+        <ul class="card__list">
+          <li>Instalación y configuración del Monitor 320D</li>
+          <li>Reemplazo completo de arnés principal 320D</li>
+          <li>Diagnóstico de códigos de falla eléctricos</li>
+          <li>Prevención de cortocircuitos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── KOMATSU ── -->
+  <div class="brand-section" data-brand="komatsu">
+    <div class="section-header">
+      <h2>Komatsu</h2>
+      <span class="brand-badge">Komatsu</span>
+    </div>
+    <div class="cards-grid">
+      <div class="card urgency-yellow" data-brand="komatsu" data-keywords="CA2249 presión combustible baja filtros bomba alimentación">
+        <div class="card__header">
+          <span class="card__code">CA2249</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Presión de Combustible Baja</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Cambiar filtros de combustible</li>
+          <li>Revisar bomba de alimentación</li>
+          <li>Revisar fugas en líneas</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="komatsu" data-keywords="CALL00 error comunicación interna conectores CAN tablero">
+        <div class="card__header">
+          <span class="card__code">CALL00</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Error de Comunicación Interna</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Revisar conectores detrás del tablero</li>
+          <li>Medir resistencia red CAN (60 Ohms)</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-red" data-brand="komatsu" data-keywords="B@BAZG presión aceite baja apagar nivel verificar">
+        <div class="card__header">
+          <span class="card__code">B@BAZG</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">Presión de Aceite Baja</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Apagar motor inmediatamente</li>
+          <li>Verificar nivel de aceite</li>
+          <li>Medir presión real con manómetro</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-red" data-brand="komatsu" data-keywords="B@BCNS sobrecalentamiento radiador ventilador hidráulico">
+        <div class="card__header">
+          <span class="card__code">B@BCNS</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">Sobrecalentamiento del Motor</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Limpiar radiador y núcleo de enfriamiento</li>
+          <li>Revisar ventilador hidráulico</li>
+          <li>Verificar nivel de refrigerante</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="komatsu" data-keywords="AB00KE carga baja alternador bandas baterías">
+        <div class="card__header">
+          <span class="card__code">AB00KE</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Carga Baja del Alternador</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Revisar bandas de transmisión</li>
+          <li>Revisar alternador (salida mín. 13.5V)</li>
+          <li>Revisar estado de baterías</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── JOHN DEERE ── -->
+  <div class="brand-section" data-brand="deere">
+    <div class="section-header">
+      <h2>John Deere</h2>
+      <span class="brand-badge">Deere</span>
+    </div>
+    <div class="cards-grid">
+      <div class="card urgency-yellow" data-brand="deere" data-keywords="ECU 000094.17 presión combustible baja filtro aire bomba transferencia">
+        <div class="card__header">
+          <span class="card__code">ECU 000094.17</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Presión de Combustible Baja</div>
+        <div class="card__section-title">Posibles causas</div>
+        <ul class="card__list">
+          <li>Filtro de combustible tapado</li>
+          <li>Aire en el sistema</li>
+          <li>Bomba de transferencia defectuosa</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="deere" data-keywords="ECU 000102.02 sensor MAP errático turbo mangueras">
+        <div class="card__header">
+          <span class="card__code">ECU 000102.02</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Sensor MAP Errático</div>
+        <div class="card__section-title">Posibles causas</div>
+        <ul class="card__list">
+          <li>Sensor sucio o con depósitos</li>
+          <li>Turbocompresor desgastado</li>
+          <li>Mangueras de admisión rotas</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="deere" data-keywords="ECU 000105.16 temperatura admisión alta intercooler ventilador">
+        <div class="card__header">
+          <span class="card__code">ECU 000105.16</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Temperatura de Admisión Alta</div>
+        <div class="card__section-title">Posibles causas</div>
+        <ul class="card__list">
+          <li>Intercooler tapado o dañado</li>
+          <li>Ventilador defectuoso</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-red" data-brand="deere" data-keywords="ECU 000111.01 nivel bajo refrigerante culata daño motor">
+        <div class="card__header">
+          <span class="card__code">ECU 000111.01</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">Nivel Bajo de Refrigerante</div>
+        <div class="card__section-title">Riesgo</div>
+        <ul class="card__list">
+          <li>Daño severo de motor si no se atiende</li>
+          <li>Culata agrietada por sobrecalentamiento</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="deere" data-keywords="TCU 000569.07 solenoide transmisión bobina embrague">
+        <div class="card__header">
+          <span class="card__code">TCU 000569.07</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Solenoide de Transmisión</div>
+        <div class="card__section-title">Posibles causas</div>
+        <ul class="card__list">
+          <li>Bobina abierta o en cortocircuito</li>
+          <li>Embrague interno dañado</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── VOLVO CE ── -->
+  <div class="brand-section" data-brand="volvo">
+    <div class="section-header">
+      <h2>Volvo CE</h2>
+      <span class="brand-badge">Volvo</span>
+    </div>
+    <div class="cards-grid">
+      <div class="card urgency-yellow" data-brand="volvo" data-keywords="MID 128 PSID 96 FMI 1 presión combustible baja">
+        <div class="card__header">
+          <span class="card__code">MID 128 PSID 96 FMI 1</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Presión de Combustible Baja</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Cambiar filtros de combustible</li>
+          <li>Revisar bomba de baja presión</li>
+          <li>Verificar fugas en líneas</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-red" data-brand="volvo" data-keywords="MID 128 PID 100 FMI 1 presión aceite baja">
+        <div class="card__header">
+          <span class="card__code">MID 128 PID 100 FMI 1</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">Presión de Aceite Baja</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Apagar motor inmediatamente</li>
+          <li>Verificar nivel de aceite</li>
+          <li>Medir presión real con manómetro</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-red" data-brand="volvo" data-keywords="MID 128 PID 110 FMI 0 temperatura alta refrigerante">
+        <div class="card__header">
+          <span class="card__code">MID 128 PID 110 FMI 0</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">Temperatura Alta del Refrigerante</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Reducir carga del equipo</li>
+          <li>Revisar nivel de refrigerante</li>
+          <li>Limpiar radiador</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="volvo" data-keywords="MID 144 PSID 230 FMI 9 falla comunicación CAN">
+        <div class="card__header">
+          <span class="card__code">MID 144 PSID 230 FMI 9</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Falla de Comunicación CAN</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Medir resistencia CAN (60 Ohms)</li>
+          <li>Revisar conectores de red</li>
+          <li>Verificar terminadores</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CASE ── -->
+  <div class="brand-section" data-brand="case">
+    <div class="section-header">
+      <h2>Case</h2>
+      <span class="brand-badge">Case</span>
+    </div>
+    <div class="cards-grid">
+      <div class="card urgency-yellow" data-brand="case" data-keywords="P0087 presión combustible baja Case">
+        <div class="card__header">
+          <span class="card__code">P0087</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Presión de Combustible Baja</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Cambiar filtros de combustible</li>
+          <li>Verificar bomba de baja presión</li>
+          <li>Revisar fugas en sistema</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="case" data-keywords="P0117 temperatura refrigerante baja señal Case sensor">
+        <div class="card__header">
+          <span class="card__code">P0117</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Temperatura Refrigerante — Señal Baja</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Revisar sensor de temperatura (resistencia)</li>
+          <li>Verificar conector y cableado</li>
+          <li>Corto a tierra en el circuito</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-red" data-brand="case" data-keywords="P0217 sobretemperatura motor Case">
+        <div class="card__header">
+          <span class="card__code">P0217</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">Sobretemperatura del Motor</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Apagar y dejar enfriar</li>
+          <li>Revisar nivel de refrigerante</li>
+          <li>Inspeccionar bomba de agua y termostato</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="case" data-keywords="U0100 pérdida comunicación ECM Case CAN">
+        <div class="card__header">
+          <span class="card__code">U0100</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Pérdida de Comunicación ECM</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Verificar alimentación del ECM</li>
+          <li>Revisar red CAN (60 Ohms)</li>
+          <li>Inspeccionar conector principal del ECM</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── HITACHI ── -->
+  <div class="brand-section" data-brand="hitachi">
+    <div class="section-header">
+      <h2>Hitachi</h2>
+      <span class="brand-badge">Hitachi</span>
+    </div>
+    <div class="cards-grid">
+      <div class="card urgency-red" data-brand="hitachi" data-keywords="E004 sobrecalentamiento hidráulico Hitachi">
+        <div class="card__header">
+          <span class="card__code">E004</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">Sobrecalentamiento Hidráulico</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Reducir trabajo y dejar enfriar</li>
+          <li>Limpiar enfriador de aceite hidráulico</li>
+          <li>Verificar nivel de aceite hidráulico</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-red" data-brand="hitachi" data-keywords="E010 sensor RPM defectuoso Hitachi cigüeñal">
+        <div class="card__header">
+          <span class="card__code">E010</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">Sensor RPM Defectuoso</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Limpiar sensor magnético</li>
+          <li>Verificar separación con volante</li>
+          <li>Revisar cableado del sensor</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-yellow" data-brand="hitachi" data-keywords="E013 voltaje bajo sistema Hitachi baterías alternador">
+        <div class="card__header">
+          <span class="card__code">E013</span>
+          <span class="card__urgency">Amarillo</span>
+        </div>
+        <div class="card__title">Voltaje Bajo del Sistema</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Verificar estado de baterías</li>
+          <li>Revisar alternador (salida 13.5–14.5V)</li>
+          <li>Revisar fusibles principales</li>
+        </ul>
+      </div>
+
+      <div class="card urgency-red" data-brand="hitachi" data-keywords="E025 presión hidráulica insuficiente Hitachi bomba">
+        <div class="card__header">
+          <span class="card__code">E025</span>
+          <span class="card__urgency">Rojo</span>
+        </div>
+        <div class="card__title">Presión Hidráulica Insuficiente</div>
+        <div class="card__section-title">Acciones</div>
+        <ul class="card__list">
+          <li>Verificar nivel de aceite hidráulico</li>
+          <li>Revisar bomba hidráulica principal</li>
+          <li>Inspeccionar válvula de alivio</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GUÍA FMI ── -->
+  <div class="brand-section" data-brand="fmi">
+    <div class="section-header">
+      <h2>Guía FMI Universal</h2>
+      <span class="brand-badge">Todas las marcas</span>
+    </div>
+    <div class="fmi-grid">
+      <div class="fmi-card" data-brand="fmi" data-keywords="FMI 00 datos rango normal sobrepresión sobretemperatura">
+        <div class="fmi-card__code">FMI 00</div>
+        <div class="fmi-card__desc">Datos por encima del rango normal</div>
+        <ul class="fmi-card__items">
+          <li>Sobrepresión</li><li>Sobretemperatura</li><li>Sobrevelocidad</li>
+        </ul>
+      </div>
+      <div class="fmi-card" data-brand="fmi" data-keywords="FMI 01 datos debajo rango normal restricciones filtros desgaste">
+        <div class="fmi-card__code">FMI 01</div>
+        <div class="fmi-card__desc">Datos por debajo del rango normal</div>
+        <ul class="fmi-card__items">
+          <li>Restricciones</li><li>Filtros tapados</li><li>Desgaste interno</li>
+        </ul>
+      </div>
+      <div class="fmi-card" data-brand="fmi" data-keywords="FMI 02 datos erráticos conectores humedad interferencia">
+        <div class="fmi-card__code">FMI 02</div>
+        <div class="fmi-card__desc">Datos erráticos o intermitentes</div>
+        <ul class="fmi-card__items">
+          <li>Conectores flojos</li><li>Humedad en arnés</li><li>Interferencia eléctrica</li>
+        </ul>
+      </div>
+      <div class="fmi-card" data-brand="fmi" data-keywords="FMI 03 voltaje alto corto positivo alternador">
+        <div class="fmi-card__code">FMI 03</div>
+        <div class="fmi-card__desc">Voltaje alto en el circuito</div>
+        <ul class="fmi-card__items">
+          <li>Corto a positivo</li><li>Alternador defectuoso</li>
+        </ul>
+      </div>
+      <div class="fmi-card" data-brand="fmi" data-keywords="FMI 04 voltaje bajo corto tierra sensor">
+        <div class="fmi-card__code">FMI 04</div>
+        <div class="fmi-card__desc">Voltaje bajo en el circuito</div>
+        <ul class="fmi-card__items">
+          <li>Corto a tierra</li><li>Sensor defectuoso</li>
+        </ul>
+      </div>
+      <div class="fmi-card" data-brand="fmi" data-keywords="FMI 05 corriente baja circuito abierto solenoide">
+        <div class="fmi-card__code">FMI 05</div>
+        <div class="fmi-card__desc">Corriente baja — circuito abierto</div>
+        <ul class="fmi-card__items">
+          <li>Circuito abierto</li><li>Solenoide quemado</li>
+        </ul>
+      </div>
+      <div class="fmi-card" data-brand="fmi" data-keywords="FMI 06 corriente alta bobina corto arnés">
+        <div class="fmi-card__code">FMI 06</div>
+        <div class="fmi-card__desc">Corriente alta — corto en bobina</div>
+        <ul class="fmi-card__items">
+          <li>Bobina en cortocircuito</li><li>Arnés dañado</li>
+        </ul>
+      </div>
+      <div class="fmi-card" data-brand="fmi" data-keywords="FMI 07 componente no responde solenoides actuadores">
+        <div class="fmi-card__code">FMI 07</div>
+        <div class="fmi-card__desc">Componente no responde</div>
+        <ul class="fmi-card__items">
+          <li>Solenoides bloqueados</li><li>Actuadores dañados</li>
+        </ul>
+      </div>
+      <div class="fmi-card" data-brand="fmi" data-keywords="FMI 08 frecuencia anormal sensores velocidad magnéticos">
+        <div class="fmi-card__code">FMI 08</div>
+        <div class="fmi-card__desc">Frecuencia o pulso anormal</div>
+        <ul class="fmi-card__items">
+          <li>Sensores de velocidad</li><li>Sensores magnéticos</li>
+        </ul>
+      </div>
+      <div class="fmi-card" data-brand="fmi" data-keywords="FMI 09 pérdida comunicación CAN terminadores ECM">
+        <div class="fmi-card__code">FMI 09</div>
+        <div class="fmi-card__desc">Pérdida de comunicación</div>
+        <ul class="fmi-card__items">
+          <li>Red CAN dañada</li><li>Terminadores faltantes</li><li>ECM sin alimentación</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DIAGNÓSTICO POR SÍNTOMA ── -->
+  <div class="brand-section" data-brand="symptom">
+    <div class="section-header">
+      <h2>Diagnóstico por Síntoma</h2>
+      <span class="brand-badge">Guía rápida</span>
+    </div>
+    <div class="symptom-grid">
+      <div class="symptom-card" data-brand="symptom" data-keywords="máquina no arranca voltaje fusibles RPM combustible ECM">
+        <div class="symptom-card__title">La máquina no arranca</div>
+        <ul class="card__list">
+          <li>Verificar voltaje de baterías (mín. 12.4V)</li>
+          <li>Revisar fusibles principales</li>
+          <li>Sensor RPM / cigüeñal</li>
+          <li>Presión de combustible</li>
+          <li>Alimentación al ECM</li>
+        </ul>
+      </div>
+      <div class="symptom-card" data-brand="symptom" data-keywords="se apaga sola cigüeñal alimentación ECM relé combustible">
+        <div class="symptom-card__title">Se apaga sola en operación</div>
+        <ul class="card__list">
+          <li>Sensor de cigüeñal intermitente</li>
+          <li>Alimentación del ECM inestable</li>
+          <li>Relé principal defectuoso</li>
+          <li>Presión de combustible insuficiente</li>
+        </ul>
+      </div>
+      <div class="symptom-card" data-brand="symptom" data-keywords="baja potencia filtros aire combustible turbo MAP inyectores">
+        <div class="symptom-card__title">Baja potencia</div>
+        <ul class="card__list">
+          <li>Filtros de aire saturados</li>
+          <li>Filtros de combustible tapados</li>
+          <li>Turbocompresor desgastado</li>
+          <li>Sensor MAP defectuoso</li>
+          <li>Inyectores con retorno excesivo</li>
+        </ul>
+      </div>
+      <div class="symptom-card" data-brand="symptom" data-keywords="humo negro filtro aire turbo inyectores">
+        <div class="symptom-card__title">Humo negro excesivo</div>
+        <ul class="card__list">
+          <li>Filtro de aire saturado</li>
+          <li>Turbocompresor dañado</li>
+          <li>Inyectores en mal estado</li>
+        </ul>
+      </div>
+      <div class="symptom-card" data-brand="symptom" data-keywords="humo blanco inyectores baja compresión sistema HEUI">
+        <div class="symptom-card__title">Humo blanco excesivo</div>
+        <ul class="card__list">
+          <li>Inyectores con fuga interna</li>
+          <li>Baja compresión en cilindros</li>
+          <li>Sistema HEUI con presión insuficiente</li>
+        </ul>
+      </div>
+      <div class="symptom-card" data-brand="symptom" data-keywords="sobrecalentamiento radiadores ventilador termostato bomba agua">
+        <div class="symptom-card__title">Sobrecalentamiento</div>
+        <ul class="card__list">
+          <li>Radiadores sucios o tapados</li>
+          <li>Ventilador defectuoso</li>
+          <li>Termostato dañado</li>
+          <li>Bomba de agua desgastada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── VALORES DE REFERENCIA ── -->
+  <div class="values-section">
+    <div class="section-header">
+      <h2>Valores de Referencia Rápidos</h2>
+    </div>
+    <table class="values-table">
+      <thead>
+        <tr>
+          <th>Parámetro</th>
+          <th>Valor Normal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Batería (motor apagado)</td><td>12.4 – 12.8V</td></tr>
+        <tr><td>Sistema cargando (motor encendido)</td><td>13.5 – 14.5V</td></tr>
+        <tr><td>Red CAN J1939</td><td>60 Ω entre CAN-H y CAN-L</td></tr>
+        <tr><td>Alimentación sensores</td><td>5V</td></tr>
+        <tr><td>Temperatura motor (operación)</td><td>85 – 105°C</td></tr>
+        <tr><td>Presión aceite en ralentí</td><td>15 – 30 PSI</td></tr>
+        <tr><td>Presión aceite en trabajo</td><td>40 – 70 PSI</td></tr>
+        <tr><td>Temperatura aceite hidráulico</td><td>50 – 85°C</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="no-results" id="noResults">
+    <h3>Sin resultados</h3>
+    <p>No encontramos códigos que coincidan con tu búsqueda. Contáctanos directamente.</p>
+  </div>
+
+</div>
+
+<div class="cta-section">
+  <div class="container">
+    <h2>¿Tienes un código de falla activo?</h2>
+    <p>Nuestros especialistas atienden en campo en toda la República Mexicana. Consultoría técnica disponible para cualquier parte del mundo.</p>
+    <a href="index.html#contacto" class="btn-dark">Solicitar Diagnóstico en Campo</a>
+  </div>
+</div>
+
+<footer>
+  <p>DIESELPRO MAQUINARIA · Soporte Técnico para Maquinaria Pesada · República Mexicana · Consultoría Internacional</p>
+  <p style="margin-top:6px"><a href="mailto:dieselpromaquinaria@gmail.com">dieselpromaquinaria@gmail.com</a> · 222 549 1442</p>
+  <p style="margin-top:6px"><a href="index.html">← Volver al sitio principal</a></p>
+</footer>
+
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const searchStats = document.getElementById('searchStats');
+  const noResults   = document.getElementById('noResults');
+  let activeBrand   = 'all';
+
+  function getAllCards() {
+    return document.querySelectorAll('[data-brand]:not(.brand-section)');
+  }
+  function getAllSections() {
+    return document.querySelectorAll('.brand-section');
+  }
+
+  function applyFilters() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    getAllCards().forEach(card => {
+      const brand    = card.dataset.brand;
+      const keywords = (card.dataset.keywords || '').toLowerCase();
+      const title    = (card.querySelector('.card__title, .fmi-card__desc, .symptom-card__title')?.textContent || '').toLowerCase();
+      const code     = (card.querySelector('.card__code, .fmi-card__code')?.textContent || '').toLowerCase();
+
+      const brandMatch = activeBrand === 'all' || brand === activeBrand;
+      const queryMatch = !query || keywords.includes(query) || title.includes(query) || code.includes(query);
+
+      const show = brandMatch && queryMatch;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    // Show/hide brand section headers
+    getAllSections().forEach(section => {
+      const brand = section.dataset.brand;
+      const brandMatch = activeBrand === 'all' || brand === activeBrand;
+      const hasVisible = section.querySelectorAll('[data-brand]:not(.brand-section)').length > 0 &&
+        Array.from(section.querySelectorAll('[data-brand]:not(.brand-section)')).some(c => c.style.display !== 'none');
+      section.style.display = (brandMatch && hasVisible) ? '' : 'none';
+    });
+
+    searchStats.textContent = query
+      ? `${visible} resultado${visible !== 1 ? 's' : ''} para "${searchInput.value}"`
+      : `Mostrando ${visible} código${visible !== 1 ? 's' : ''}`;
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  function filterBrand(brand, btn) {
+    activeBrand = brand;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+  applyFilters();
+</script>
+</body>
+</html>
